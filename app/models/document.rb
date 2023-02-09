@@ -3,4 +3,5 @@ class Document < ApplicationRecord
 
   validates :type, presence: true
   validates :date, presence: true
+  #has_one_attached :photo
 end

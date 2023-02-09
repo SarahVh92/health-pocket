@@ -9,7 +9,7 @@ require 'open-uri'
 
 def grab_image(url, instance)
   downloaded_image = URI.open(url)
-  instance.photo.attach(io: downloaded_image, filename: "#{url}.jpg")
+  instance.photo.attach(io: downloaded_image, filename: "#{url}.jpg", content_type: "image/png")
 end
 
 puts "Cleaning database..."
@@ -21,7 +21,7 @@ User.create!(
   first_name: "Nobuhiko",
   address: "Shibuya, Tokyo",
   last_name: "Sato",
-  phone_number: "08033684952"
+  phone_number: "08033684952",
   email: "nobusato@email.com",
   password: '123456'
 )
@@ -31,7 +31,7 @@ User.create!(
   first_name: "Marie",
   address: "Arakawa, Tokyo",
   last_name: "De clerck",
-  phone_number: "08055684952"
+  phone_number: "08055684952",
   email: "marie@email.com",
   password: '123456'
 )
@@ -41,7 +41,7 @@ User.create!(
   first_name: "Ranielle",
   address: "Yokosuka, Kanagawa",
   last_name: "Johnson",
-  phone_number: "08055684952"
+  phone_number: "08055684952",
   email: "ranielle@email.com",
   password: '123456'
 )
