@@ -49,7 +49,7 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675845938/Health
 
 Document.create!(
   user: User.all.sample,
-  type: "Immunization Record",
+  doc_type: "Immunization Record",
   country: "Japan",
   date: Date.parse("2021/07/12"),
   doctor_name: "Kawaguchi Ryota",
@@ -61,7 +61,7 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943448/Health
 
 Document.create!(
   user: User.all.sample,
-  type: "Pathology Records",
+  doc_type: "Pathology Records",
   country: "France",
   date: Date.parse("2023/01/10"),
   doctor_name: "Marcel Vincent",
@@ -72,7 +72,7 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943804/Health
 
 Document.create!(
   user: User.all.sample,
-  type: "Referral letter",
+  doc_type: "Referral letter",
   country: "United States of America",
   date: Date.parse("2022/10/25"),
   doctor_name: "Monique Jackson",
