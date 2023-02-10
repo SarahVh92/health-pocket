@@ -30,7 +30,7 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675845948/Health
 User.create!(
   first_name: "Marie",
   address: "Arakawa, Tokyo",
-  last_name: "De clerck",
+  last_name: "De Clerck",
   phone_number: "08055684952",
   email: "marie@email.com",
   password: '123456'
@@ -49,11 +49,11 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675845938/Health
 
 Document.create!(
   user: User.all.sample,
-  doc_type: "Immunization Record",
+  doc_type: "Immunization Records",
   country: "Japan",
   date: Date.parse("2021/07/12"),
   doctor_name: "Kawaguchi Ryota",
-  comment: "2nd COVID buster"
+  comment: "2nd COVID booster"
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943448/Health-pocket/Screen_Shot_2023-02-09_at_20.45.45_t1aqhk.png", Document.last)
@@ -65,14 +65,14 @@ Document.create!(
   country: "France",
   date: Date.parse("2023/01/10"),
   doctor_name: "Marcel Vincent",
-  comment: "Blood test checking in French"
+  comment: "Blood test in French"
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943804/Health-pocket/Screen_Shot_2023-02-09_at_20.55.54_hulxek.png", Document.last)
 
 Document.create!(
   user: User.all.sample,
-  doc_type: "Referral letter",
+  doc_type: "Referral letters",
   country: "United States of America",
   date: Date.parse("2022/10/25"),
   doctor_name: "Monique Jackson",
