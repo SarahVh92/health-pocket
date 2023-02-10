@@ -1,0 +1,15 @@
+.button-upload {
+  font-family: alegreya-sans;
+  padding: 15px 35px;
+  border-radius: 10px;
+  background: #5ABAAE;
+  color: white;
+  font-weight: bold;
+  font-size:16px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  &:hover {
+    color: white;
+  }
+}
