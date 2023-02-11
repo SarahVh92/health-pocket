@@ -1,0 +1,5 @@
+<%= simple_form_for @document do |f| %>
+  <%= f.input :doctor_name %>
+  <%= f.input :doc_type, collection: Document::DOC_TYPES, label: 'Add category' %>
+  <%= f.submit "Add category", class: "btn btn-primary" %>
+<% end %>
