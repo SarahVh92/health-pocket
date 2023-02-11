@@ -6,7 +6,11 @@ class DocumentPolicy < ApplicationPolicy
     end
   end
 
-  def index?
+  def edit?
+    true
+  end
+
+  def update?
     true
   end
 
