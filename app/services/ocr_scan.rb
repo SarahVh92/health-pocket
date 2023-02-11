@@ -1,10 +1,10 @@
 require "google/cloud/vision"
+require 'open-uri'
+
 class OcrScan
   def initialize(pdf_url)
     @pdf_url = pdf_url
-    @vision = Google::Cloud::Vision.image_annotator do |config|
-      config.credentials = "http://localhost:3000/lucid-honor-377410-9d5bc28e0192.json"
-    end
+    @vision = Google::Cloud::Vision.image_annotator
   end
 
   def scan
