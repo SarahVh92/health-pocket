@@ -9,4 +9,12 @@ class DocumentPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def edit?
+    true
+  end
+
+  def update?
+    true
+  end
 end
