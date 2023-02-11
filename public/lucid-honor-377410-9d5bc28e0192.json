@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "lucid-honor-377410",
+  "private_key_id": "9d5bc28e0192e37896ea967679c72d7de766996e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQChIMW3VtsAo2sv\nkl4isT9ftoipf3/o8Vn1M5ijk2mHgSsiXJraVZhujjyHMVBjS8/nTX3/51LGFCLf\nihAv3B5enBD/LeOkR45NvucRVAtEEANsNngMs4JpazVqgWo3XFUPVmeAefCX7dIt\nbwm7Txmb1BRa0ZQTu8GTDRnm2DEfR9Na0Q53AL7eTxHJbc4KoD6hqzl4jCMM1+Xy\nrxsbeCd+JGKk4PsbpG7PSdbQpy6ChKPAB0UW5jkJur57yffJtOLUpU/30hxe1LD5\nUsvhh7XtZiqH1tl/KP49l/eyRo4xTuu4ICQDNxzQQ6oB5DtU15+BFscrLkJpgSbE\netLx7gJ5AgMBAAECggEAN3MZR55W0LHsbZsf1S2NQymEf1w2zxnb3OPMOCK/UtgT\nWYhn7BI/2nANiXLhmMJawl1rKplXZX5BgA85wdatBt8LhF2s9PiBEuVLDK4REHO4\nUdGu36QZEaFI6SWvQWz/gr838EFGmGpKBcOsJC80/2jtNlHgdSgMlkgQbV5iDUK1\nBNByCFD6iTDwHW1Z6AT5IX8y3tFpndziFR56IQrr/SShnQ59mZWQqfj0T9ipn8WB\nhr6vjJm6vS+uxqHInNrzBXMiEeHToy/HjOn6BJWPl8ecf593EmkSTRqqbVj8pPRa\nJ747vnvshCh9hxDfWVovL90JxwymEojlosLRyVzNTwKBgQDXXUtk0VZ6MMnZQ3eK\nrJTkLy3IKcwkTV7PPXlVdLDsrStiVnNXEMpYxCQUGVd2URA4iDJCvN7lmwgDLyjQ\nYrrfWpeUKZHKj4CKLivQHGoNn0Zs5EaRTLrkVXuXdnPGVVTX9Hcc7NdQszoVtrbB\nuuAcfpMPe3oiIrU1U7JD6J3IvwKBgQC/h7T/SS3DXiIeiBFjQ7kmMbf66bxxa/zq\n2S+JpTMs5kVjm0n5jvHf4gFWn/C/b4w6uYShg81RzIH1LdnmP0VWvGcmM71kyFZr\nQ9bXjfp/Ec8rcw/lj1/Xms/2SQfuTKUTWVJY+DI8OWcoou/4wwLLQ0HBqaYYWgON\n67URovCKxwKBgFkRXHz1lq4yP0h7fpT7ixhT6rs9jg/1b6CF7AhLmmBHvgmNd2Yq\nq4TKmaE2WdW08OBwc1jmg8ixtT6b4mVMb7yv2sCL8J+1eZOsRLJtDe9UT+v4/LZa\n5XBJajPZ6Ue9QrmNgTWVPfdCKGOSjULR5p3iOy/MAVbcw9SqKK+tJJRBAoGAWNHe\nJeURy+ADgpUnOxlU61lzMHDkatThXSeK3BI4QUIoO6DwFUMs994fMMTLKHvaVAFk\neGJe/OgR/FlfC1+cEDUewKCN3AbrzKKRJzU4TWU85bFeVd6/W4T3nAcSHnh8tRRf\nE9NFuJgGNtoY3wvQZ+Kww9agp/pWW6JLPfqKAlECgYEAxOWpbRKrvQHaCmQ60bad\nFpwSFkQ8Sb4p3BWaBO0enbVvwdIiqrgkcm8QxdXC+IDg0nh3OGjuF0ZR862DJFSC\n+vbH4noBM9TxYnySfG4twox/DFH5B8iGR/wO3eNKmaJBOrHYzNOLlM2gOHDBj2Uo\n6qYpuq8QDuUGEYqR1W0Z3Jo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "healthpckets@lucid-honor-377410.iam.gserviceaccount.com",
+  "client_id": "104768600756390248070",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/healthpckets%40lucid-honor-377410.iam.gserviceaccount.com"
+}
