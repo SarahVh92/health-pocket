@@ -1,35 +1,35 @@
 <div>
   <p>Upload a Document</p>
   <%# CHANGE LINK_TO PATH %>
-  <%= link_to "Upload", documents_path, class: "button-upload" %>
+  <%= link_to "Upload", new_document_path, class: "button-upload" %>
 </div>
 
 <div>
-  <%= link_to documents_path do %>
+  <%= link_to documents_path, class: "link" do %>
     <div>
       <span class="material-symbols-outlined">clinical_notes</span>
       <p>Referral Letters</p>
     </div>
   <% end %>
-  <%= link_to documents_path do %>
+  <%= link_to documents_path, class: "link" do %>
     <div>
       <span class="material-symbols-outlined">syringe</span>
       <p>Immunization Records</p>
     </div>
   <% end %>
-  <%= link_to documents_path do %>
+  <%= link_to documents_path, class: "link" do %>
     <div>
       <span class="material-symbols-outlined">labs</span>
       <p>Pathology Records</p>
     </div>
   <% end %>
-  <%= link_to documents_path do %>
+  <%= link_to documents_path, class: "link" do %>
     <div>
       <span class="material-symbols-outlined">pill</span>
       <p>Prescription Records</p>
     </div>
   <% end %>
-  <%= link_to documents_path do %>
+  <%= link_to documents_path, class: "link" do %>
     <div>
       <span class="material-symbols-outlined">radiology</span>
       <p>Radiology Reports</p>
