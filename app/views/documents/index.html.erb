@@ -1,16 +1,40 @@
 <div>
-  <p>Upload a Document</p>
-  <%# CHANGE LINK_TO PATH %>
-  <%= link_to "Upload", new_document_path, class: "button-upload" %>
-</div>
+  <div>
+    <% if params[:document].present? && params[:document] == "Referral Letters" %>
+      <% @documents.each do |document| %>
+        <h1><%= document.doc_type %></h1>
+        <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+      <% end %>
+    <% elsif params[:document].present? && params[:document] == "Immunization Records" %>
+      <% @documents.each do |document| %>
+        <h1><%= document.doc_type %></h1>
+        <p><%= document.date document.doctor_name document.country %></p>
+      <% end %>
+    <% elsif params[:document].present? && params[:document] == "Pathology Records" %>
+      <% @documents.each do |document| %>
+        <h1><%= document.doc_type %></h1>
+        <p><%= document.date document.doctor_name document.country %></p>
+      <% end %>
+    <% elsif params[:document].present? && params[:document] == "Prescription Records" %>
+      <% @documents.each do |document| %>
+        <h1><%= document.doc_type %></h1>
+        <p><%= document.date document.doctor_name document.country %></p>
+      <% end %>
+    <% elsif params[:document].present? && params[:document] == "Radiology Records" %>
+      <% @documents.each do |document| %>
+        <h1><%= document.doc_type %></h1>
+        <p><%= document.date document.doctor_name document.country %></p>
+      <% end %>
 
-<div>
-  <%= link_to documents_path, class: "link" do %>
+    <% else %>
     <div>
-      <span class="material-symbols-outlined">clinical_notes</span>
-      <p>Referral Letters</p>
+      <p>Upload a Document</p>
+      <%= link_to "Upload", new_document_path, class: "button-upload" %>
     </div>
-  <% end %>
+    <%= link_to documents_path(document: "Referral Letters"), class: "link" do %>
+      <p><span class="material-symbols-outlined">clinical_notes</span>Referral Letters</p>
+    <% end %>
+  </div>
   <%= link_to documents_path, class: "link" do %>
     <div>
       <span class="material-symbols-outlined">syringe</span>
@@ -35,4 +59,6 @@
       <p>Radiology Reports</p>
     </div>
   <% end %>
+  <% end %>
+
 </div>

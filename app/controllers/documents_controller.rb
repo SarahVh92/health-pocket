@@ -1,6 +1,18 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = policy_scope(Document)
+    if params[:document].present? && params[:document] == "Referral Letters"
+      @documents = policy_scope(Document).where(doc_type: params[:document])
+    elsif params[:document].present? && params[:document] == "Immunization Records"
+      @documents = policy_scope(Document).where(doc_type: params[:immunization_records])
+    elsif params[:document].present? && params[:document] == "Pathology Records"
+      @documents = policy_scope(Document).where(doc_type: params[:pathology_records])
+    elsif params[:document].present? && params[:document] == "Prescription Records"
+      @documents = policy_scope(Document).where(doc_type: params[:prescription_records])
+    elsif params[:document].present? && params[:document] == "Radiology Reports"
+      @documents = policy_scope(Document).where(doc_type: params[:radiology_reports])
+    else
+      @documents = policy_scope(Document)
+    end
   end
 
   def new
