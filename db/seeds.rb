@@ -72,7 +72,7 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943804/Health
 
 Document.create!(
   user: User.all.sample,
-  doc_type: "Referral letters",
+  doc_type: "Referral Letters",
   pays: "United States of America",
   date: Date.parse("2022/10/25"),
   doctor_name: "Monique Jackson",

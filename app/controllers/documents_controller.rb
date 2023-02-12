@@ -3,13 +3,13 @@ class DocumentsController < ApplicationController
     if params[:document].present? && params[:document] == "Referral Letters"
       @documents = policy_scope(Document).where(doc_type: params[:document])
     elsif params[:document].present? && params[:document] == "Immunization Records"
-      @documents = policy_scope(Document).where(doc_type: params[:immunization_records])
+      @documents = policy_scope(Document).where(doc_type: params[:document])
     elsif params[:document].present? && params[:document] == "Pathology Records"
-      @documents = policy_scope(Document).where(doc_type: params[:pathology_records])
+      @documents = policy_scope(Document).where(doc_type: params[:document])
     elsif params[:document].present? && params[:document] == "Prescription Records"
-      @documents = policy_scope(Document).where(doc_type: params[:prescription_records])
+      @documents = policy_scope(Document).where(doc_type: params[:document])
     elsif params[:document].present? && params[:document] == "Radiology Reports"
-      @documents = policy_scope(Document).where(doc_type: params[:radiology_reports])
+      @documents = policy_scope(Document).where(doc_type: params[:document])
     else
       @documents = policy_scope(Document)
     end
@@ -24,12 +24,11 @@ class DocumentsController < ApplicationController
   end
 
   def edit
-    @document = Document.find(params[:id])
+    @document = Document.new
+    # @document = Document.find(params[:id])
     authorize @document
   end
 
-
-    
   def new
     @document = Document.new
     authorize @document
@@ -40,17 +39,18 @@ class DocumentsController < ApplicationController
     authorize @document
 
     @document_info = OcrScan.new(document_params[:photo].tempfile.path).scan
+    @document.user = current_user
 
     if @document.save
-      # TO DO: redirect to edit page
-      # redirect_to
+      redirect_to documents_path, notice: "Image was successfully scanned."
     else
       render :new
     end
   end
 
   private
+
   def document_params
-    params.require(:document).permit(:doc_type, :country, :doctor_name, :comment, :date, :user_id, :photo)
+    params.require(:document).permit(:doc_type, :pays, :doctor_name, :comment, :date, :photo)
   end
 end

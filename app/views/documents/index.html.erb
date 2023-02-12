@@ -3,27 +3,27 @@
     <% if params[:document].present? && params[:document] == "Referral Letters" %>
       <% @documents.each do |document| %>
         <h1><%= document.doc_type %></h1>
-        <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+        <p><%= document.date %><%= document.doctor_name %><%= document.pays %></p>
       <% end %>
     <% elsif params[:document].present? && params[:document] == "Immunization Records" %>
+        <h1>Immunization Records</h1>
       <% @documents.each do |document| %>
-        <h1><%= document.doc_type %></h1>
-        <p><%= document.date document.doctor_name document.country %></p>
+        <p><%= document.date %><%= document.doctor_name %><%= document.pays %></p>
       <% end %>
     <% elsif params[:document].present? && params[:document] == "Pathology Records" %>
       <% @documents.each do |document| %>
         <h1><%= document.doc_type %></h1>
-        <p><%= document.date document.doctor_name document.country %></p>
+        <p><%= document.date document.doctor_name document.pays %></p>
       <% end %>
     <% elsif params[:document].present? && params[:document] == "Prescription Records" %>
       <% @documents.each do |document| %>
         <h1><%= document.doc_type %></h1>
-        <p><%= document.date document.doctor_name document.country %></p>
+        <p><%= document.date document.doctor_name document.pays %></p>
       <% end %>
     <% elsif params[:document].present? && params[:document] == "Radiology Records" %>
       <% @documents.each do |document| %>
         <h1><%= document.doc_type %></h1>
-        <p><%= document.date document.doctor_name document.country %></p>
+        <p><%= document.date document.doctor_name document.pays %></p>
       <% end %>
 
     <% else %>
@@ -35,7 +35,7 @@
       <p><span class="material-symbols-outlined">clinical_notes</span>Referral Letters</p>
     <% end %>
   </div>
-  <%= link_to documents_path, class: "link" do %>
+  <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
     <div>
       <span class="material-symbols-outlined">syringe</span>
       <p>Immunization Records</p>
