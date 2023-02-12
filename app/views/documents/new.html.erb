@@ -3,6 +3,7 @@
   <%= f.input :pays, label: "Country" %>
   <%= f.input :date, html5: true %>
   <%= f.input :doc_type, collection: Document::DOC_TYPES, label: 'Add category' %>
+  <%= f.input :comment %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, "Upload Document" %>
   <%= f.submit "Add category", class: "btn btn-primary" %>
