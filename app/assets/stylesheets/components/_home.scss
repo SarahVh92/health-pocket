@@ -1,0 +1,46 @@
+.welcome{
+  padding: 40px;
+  padding-bottom: 0px;
+}
+
+.card-label{
+  font-size :12px;
+  padding-top: 10px;
+  text-align: center;
+
+}
+
+.health-card-image{
+  height: 200px;
+  width: 220px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 10px;
+
+}
+
+.health-info{
+  font-size: 20px;
+  margin: 0px;
+}
+
+.flex-container{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .health-card-image{
+    height: 100px;
+    width: 120px;
+    margin: 0 auto;
+  }
+
+}
