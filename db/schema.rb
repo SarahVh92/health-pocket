@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_030520) do
 
   create_table "documents", force: :cascade do |t|
     t.string "doc_type"
-    t.string "pays"
+    t.string "country"
     t.string "doctor_name"
     t.text "comment"
     t.date "date"
