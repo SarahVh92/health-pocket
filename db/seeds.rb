@@ -50,7 +50,7 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675845938/Health
 Document.create!(
   user: User.all.sample,
   doc_type: "Immunization Records",
-  country: "Japan",
+  pays: "Japan",
   date: Date.parse("2021/07/12"),
   doctor_name: "Kawaguchi Ryota",
   comment: "2nd COVID booster"
@@ -62,7 +62,7 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943448/Health
 Document.create!(
   user: User.all.sample,
   doc_type: "Pathology Records",
-  country: "France",
+  pays: "France",
   date: Date.parse("2023/01/10"),
   doctor_name: "Marcel Vincent",
   comment: "Blood test in French"
@@ -72,8 +72,8 @@ grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943804/Health
 
 Document.create!(
   user: User.all.sample,
-  doc_type: "Referral letters",
-  country: "United States of America",
+  doc_type: "Referral Letters",
+  pays: "United States of America",
   date: Date.parse("2022/10/25"),
   doctor_name: "Monique Jackson",
   comment: "Referral letter for asthma"

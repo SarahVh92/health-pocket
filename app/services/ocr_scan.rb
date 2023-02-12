@@ -9,6 +9,5 @@ class OcrScan
 
   def scan
     image = @vision.text_detection(image: URI.open(@pdf_url))
-    raise
   end
 end

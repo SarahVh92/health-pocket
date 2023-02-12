@@ -61,6 +61,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "pundit"
 gem 'google-api-client'
 gem 'google-cloud-vision'
+gem 'acts-as-taggable-on', '~> 9.0'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
