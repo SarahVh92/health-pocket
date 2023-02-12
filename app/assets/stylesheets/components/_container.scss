@@ -3,3 +3,22 @@
   padding-top: 100px;
   overflow: hidden;
 }
+
+.login-container{
+  padding-top: 50px;
+  overflow:hidden;
+}
+
+.homepage-container{
+  overflow:hidden;
+  background-color:#5ABAAE ;
+  color: white;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .login-container {
+    padding-top: 100px;
+  }
+}

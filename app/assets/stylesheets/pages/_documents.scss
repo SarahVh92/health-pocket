@@ -1,0 +1,30 @@
+
+
+.upload-card {
+  background:#5ABAAE ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: inset;
+  padding: 60px;
+  margin: 0 auto;
+  // background-image: url("../../images/upload_background.png");
+  // background-size: cover;
+  // background-position: center;
+
+  .h5 {
+    text-align: center;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .upload-card{
+    height: 200px;
+    width: 250px;
+  }
+
+}
