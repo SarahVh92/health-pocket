@@ -1,4 +1,4 @@
-.button-upload {
+.button{
   font-family: alegreya-sans;
   padding: 15px 35px;
   border-radius: 10px;
@@ -11,5 +11,15 @@
 
   &:hover {
     color: white;
+    background: #89e2d7;
+
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .button {
+    padding: 10px 25px;
+  }
+
+
 }

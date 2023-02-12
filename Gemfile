@@ -5,6 +5,7 @@ ruby "3.1.2"
 
 # MAnually added gems
 gem "cloudinary"
+gem 'acts-as-taggable-on', '~> 9.0'
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
