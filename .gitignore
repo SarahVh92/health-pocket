@@ -40,4 +40,4 @@
 *.swp
 .DS_Store
 
-./ocr-key.json
+ocr-google.json
