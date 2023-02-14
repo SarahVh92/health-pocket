@@ -35,6 +35,19 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def show
+    @document = Document.find(params[:id])
+    authorize @document
+    @qr_code = RQRCode::QRCode.new("https://www.google.com")
+    @svg = @qr_code.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      standalone: true
+    )
+    puts @qr_code
+  end
+
   def update
     @document = Document.find(params[:id])
     @document.update(document_params)
@@ -50,6 +63,6 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:doc_type, :country, :doctor_name, :comment, :date, :photo)
+    params.require(:document).permit(:doc_type, :country, :doctor_name, :comment, :date, :photo, :qr_code)
   end
 end
