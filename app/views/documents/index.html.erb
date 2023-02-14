@@ -31,29 +31,44 @@
       <% end %>
 
     <% else %>
-      <div class="upload-card mt-5">
-        <div>
-          <h5>Upload Document</h5>
-          <%= link_to "Upload", new_document_path, class: "button" %>
-        </div>
+
+    <div class = "upload-card mt-5">
+    <div>
+      <p><strong>Upload a Document</strong></p>
+      <%= link_to "Upload", new_document_path, class: "button upload-button" %>
       </div>
-      <div>
+    </div>
+    <div class = "document-upload-section">
+      <div class = "flex-container-document">
         <%= link_to documents_path(document: "Referral Letters"), class: "link" do %>
-          <p><span class="material-symbols-outlined">clinical_notes</span> Referral Letters</p>
-        <% end %>
-        <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
-          <p><span class="material-symbols-outlined">syringe</span> Immunization Records</p>
-        <% end %>
-        <%= link_to documents_path(document: "Pathology Records"), class: "link" do %>
-          <p><span class="material-symbols-outlined">labs</span> Pathology Records</p>
-        <% end %>
-        <%= link_to documents_path(document: "Prescription Records"), class: "link" do %>
-          <p><span class="material-symbols-outlined">pill</span> Prescription Records</p>
-        <% end %>
-        <%= link_to documents_path(document: "Radiology Reports"), class: "link" do %>
-          <p><span class="material-symbols-outlined">radiology</span> Radiology Reports</p>
+          <p><span class="material-symbols-outlined">clinical_notes</span>
+          Referral Letters</p>
         <% end %>
       </div>
+      <div class = "flex-container-document">
+        <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
+          <p><span class="material-symbols-outlined">syringe</span>
+          Immunization Records</p>
+          <% end %>
+        </div>
+        <div class = "flex-container-document">
+        <%= link_to documents_path, class: "link" do %>
+        <p><span class="material-symbols-outlined">labs</span>
+        Pathology Records</p>
+        <% end %>
+        </div>
+        <div class = "flex-container-document">
+        <%= link_to documents_path, class: "link" do %>
+        <p><span class="material-symbols-outlined">pill</span>
+        Prescription Records</p>
+        <% end %>
+        </div>
+        <div class = "flex-container-document">
+        <%= link_to documents_path, class: "link" do %>
+        <p><span class="material-symbols-outlined">radiology</span>
+        Radiology Reports</p>
+        <% end %>
+        </div>
     <% end %>
   </div>
 </div>
