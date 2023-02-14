@@ -4,6 +4,7 @@
   <%= f.input :date, html5: true %>
   <%= f.input :doc_type, collection: Document::DOC_TYPES, label: 'Add category' %>
   <%= f.input :photo, as: :file %>
+  <%= f.input :qr_code %>
   <%= f.button :submit, "Upload Document" %>
   <%= f.submit "Add category", class: "btn btn-primary" %>
 <% end %>
