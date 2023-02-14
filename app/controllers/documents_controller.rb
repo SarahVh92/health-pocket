@@ -20,6 +20,14 @@ class DocumentsController < ApplicationController
   def new
     @document = Document.new
     authorize @document
+    @qr_code = RQRCode::QRCode.new("https://www.google.com")
+    @svg = @qr_code.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      standalone: true
+    )
+    puts @qr_code
   end
 
   def create
@@ -33,6 +41,11 @@ class DocumentsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+#    @document = Document.find(params[:id])
+   # authorize @document
   end
 
   def update

@@ -5,6 +5,9 @@
   <%= f.input :doc_type, collection: Document::DOC_TYPES, label: 'Add category' %>
   <%= f.input :comment %>
   <%= f.input :photo, as: :file %>
-  <%= f.input :qr_code %>
   <%= f.button :submit, "Upload Document" %>
 <% end %>
+
+<div class="container my-5">
+  <%= @svg.html_safe %>
+</div>
