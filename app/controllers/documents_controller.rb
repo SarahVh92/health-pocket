@@ -1,3 +1,5 @@
+require 'rqrcode'
+
 class DocumentsController < ApplicationController
   def index
     if params[:document].present?
@@ -45,6 +47,7 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
+    raise
   end
 
   def update
