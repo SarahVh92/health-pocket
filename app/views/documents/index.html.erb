@@ -1,9 +1,9 @@
-<div class = "container">
+<div class="container">
   <div>
     <% if params[:document].present? && params[:document] == "Referral Letters" %>
       <h1>Referral Letters</h1>
       <% @documents.each do |document| %>
-        <p><%= document.date %><%= document.doctor_name %><%= document.country</p> %>
+        <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
       <% end %>
     <% elsif params[:document].present? && params[:document] == "Immunization Records" %>
       <h1>Immunization Records</h1>
@@ -27,7 +27,7 @@
       <% end %>
 
     <% else %>
-      <div class = "upload-card mt-5">
+      <div class="upload-card mt-5">
         <div>
           <h5>Upload Document</h5>
           <%= link_to "Upload", new_document_path, class: "button" %>
