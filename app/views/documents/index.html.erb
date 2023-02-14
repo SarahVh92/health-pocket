@@ -31,40 +31,39 @@
 
     <div class = "upload-card mt-5">
     <div>
-      <h5>Upload a Document</h5>
-      <%= link_to "Upload", new_document_path, class: "button" %>
+      <p>Upload a Document</p>
+      <%= link_to "Upload", new_document_path, class: "button upload-button" %>
       </div>
     </div>
-    <div>
-    <%= link_to documents_path(document: "Referral Letters"), class: "link" do %>
-      <p><span class="material-symbols-outlined">clinical_notes</span>Referral Letters</p>
+    <div class = "document-upload-section">
+      <div class = "flex-container-document">
+        <%= link_to documents_path(document: "Referral Letters"), class: "link" do %>
+          <p><span class="material-symbols-outlined">clinical_notes</span>Referral Letters</p>
+        <% end %>
+      </div>
+      <div class = "flex-container-document">
+         <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
+          <p><span class="material-symbols-outlined">syringe</span>Immunization Records</p>
+          <% end %>
+        </div>
+        <div class = "flex-container-document">
+         <%= link_to documents_path, class: "link" do %>
+        <p><span class="material-symbols-outlined">labs</span>
+        Pathology Records</p>
+        <% end %>
+        </div>
+        <div class = "flex-container-document">
+        <%= link_to documents_path, class: "link" do %>
+        <p><span class="material-symbols-outlined">pill</span>
+        Prescription Records</p>
+        <% end %>
+        </div>
+        <div class = "flex-container-document">
+        <%= link_to documents_path, class: "link" do %>
+        <p><span class="material-symbols-outlined">radiology</span>
+        Radiology Reports</p>
+        <% end %>
+        </div>
     <% end %>
   </div>
-  <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
-    <div>
-      <span class="material-symbols-outlined">syringe</span>
-      <p>Immunization Records</p>
-    </div>
-  <% end %>
-  <%= link_to documents_path, class: "link" do %>
-    <div>
-      <span class="material-symbols-outlined">labs</span>
-      <p>Pathology Records</p>
-    </div>
-  <% end %>
-  <%= link_to documents_path, class: "link" do %>
-    <div>
-      <span class="material-symbols-outlined">pill</span>
-      <p>Prescription Records</p>
-    </div>
-  <% end %>
-  <%= link_to documents_path, class: "link" do %>
-    <div>
-      <span class="material-symbols-outlined">radiology</span>
-      <p>Radiology Reports</p>
-    </div>
-  <% end %>
-  <% end %>
-
-</div>
 </div>
