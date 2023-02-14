@@ -45,7 +45,6 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
-    puts @qr_code
   end
 
   def update
