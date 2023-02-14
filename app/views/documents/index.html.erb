@@ -1,29 +1,33 @@
 <div class="container">
   <div>
-    <% if params[:document].present? && params[:document] == "Referral Letters" %>
-      <h1>Referral Letters</h1>
-      <% @documents.each do |document| %>
-        <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
-      <% end %>
-    <% elsif params[:document].present? && params[:document] == "Immunization Records" %>
-      <h1>Immunization Records</h1>
-      <% @documents.each do |document| %>
-        <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
-      <% end %>
-    <% elsif params[:document].present? && params[:document] == "Pathology Records" %>
-      <h1>Pathology Records</h1>
-      <% @documents.each do |document| %>
-        <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
-      <% end %>
-    <% elsif params[:document].present? && params[:document] == "Prescription Records" %>
-      <h1>Prescription Records</h1>
-      <% @documents.each do |document| %>
-        <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
-      <% end %>
-    <% elsif params[:document].present? && params[:document] == "Radiology Reports" %>
-      <h1>Radiology Reports</h1>
-      <% @documents.each do |document| %>
-        <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+    <% if params[:document].present? %>
+      <% if @referral_letters.present? %>
+        <h1>Referral Letters</h1>
+        <% @referral_letters.each do |document| %>
+          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+        <% end %>
+      <% elsif @immunization_records.present? %>
+        <h1>Immunization Records</h1>
+        <% @immunization_records.each do |document| %>
+          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+        <% end %>
+      <% elsif @pathology_records.present? %>
+        <h1>Pathology Records</h1>
+        <% @pathology_records.each do |document| %>
+          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+        <% end %>
+      <% elsif @prescription_records.present? %>
+        <h1>Prescription Records</h1>
+        <% @prescription_records.each do |document| %>
+          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+        <% end %>
+      <% elsif @radiology_reports.present? %>
+        <h1>Radiology Reports</h1>
+        <% @radiology_reports.each do |document| %>
+          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+        <% end %>
+      <% else %>
+        <p></p>
       <% end %>
 
     <% else %>
