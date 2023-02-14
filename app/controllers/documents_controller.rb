@@ -4,13 +4,13 @@ class DocumentsController < ApplicationController
       if params[:document] == "Referral Letters"
         @referral_letters = policy_scope(Document).where(doc_type: params[:document])
       elsif params[:document] == "Immunization Records"
-        @immunization_records = policy_scope(Document).where(doc_type: params[:immunization_records])
+        @immunization_records = policy_scope(Document).where(doc_type: params[:document])
       elsif params[:document] == "Pathology Records"
-        @pathology_records = policy_scope(Document).where(doc_type: params[:pathology_records])
+        @pathology_records = policy_scope(Document).where(doc_type: params[:document])
       elsif params[:document] == "Prescription Records"
-        @prescription_records = policy_scope(Document).where(doc_type: params[:prescription_records])
+        @prescription_records = policy_scope(Document).where(doc_type: params[:document])
       else
-        @radiology_reports = policy_scope(Document).where(doc_type: params[:radiology_reports])
+        @radiology_reports = policy_scope(Document).where(doc_type: params[:document])
       end
     else
       @documents = policy_scope(Document)
