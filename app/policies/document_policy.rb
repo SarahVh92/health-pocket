@@ -14,6 +14,10 @@ class DocumentPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def new?
     create?
   end
