@@ -6,7 +6,6 @@
   height: 250px;
   width: 300px;
   border-radius: 10px;
-  box-shadow: inset;
   margin: 0 auto;
   background-image: url("upload_background.png");
   background-size: cover;
@@ -16,6 +15,9 @@
   .p {
     text-align: center;
     margin: 0;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgb(74, 73, 73);
+
   }
 }
 
@@ -36,6 +38,17 @@ margin-left: 20px;
 .document-upload-section{
   margin: 0 auto;
   width: 300px;
+}
+
+
+.flex-container-document{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  p {
+    color:white;
+  }
 }
 
 @media only screen and (max-width: 600px) {
