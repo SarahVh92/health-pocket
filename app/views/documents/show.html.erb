@@ -1,6 +1,16 @@
 <h1>Translate Document</h1>
 <p><%= @document.date %><%= @document.doctor_name %><%= @document.country %></p>
 <p><%= @document.comment %></p>
+
+<%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search a language"
+  %>
+  <%= submit_tag "Translate", class: "btn btn-primary" %>
+<% end %>
+
 <%= @document.photo.key %>
 
 
