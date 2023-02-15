@@ -5,6 +5,7 @@
         <h1>Referral Letters</h1>
         <% @referral_letters.each do |document| %>
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined">description</span>
           <% end %>
@@ -13,6 +14,7 @@
         <h1>Immunization Records</h1>
         <% @immunization_records.each do |document| %>
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined">description</span>
           <% end %>
@@ -21,6 +23,7 @@
         <h1>Pathology Records</h1>
         <% @pathology_records.each do |document| %>
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined">description</span>
           <% end %>
@@ -29,6 +32,7 @@
         <h1>Prescription Records</h1>
         <% @prescription_records.each do |document| %>
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined">description</span>
           <% end %>
@@ -37,6 +41,7 @@
         <h1>Radiology Reports</h1>
         <% @radiology_reports.each do |document| %>
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined">description</span>
           <% end %>
