@@ -1,5 +1,5 @@
 <h1>Translate Document</h1>
-<p><%= @document.date %><%= @document.doctor_name %><%= @document.country %></p>
+<p><%= @document.date %>: Dr.<%= @document.doctor_name %> - <%= @document.country %></p>
 <p><%= @document.comment %></p>
 
 <%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
