@@ -47,7 +47,8 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
-    raise
+
+    @translated_doc = CloudTranslation.new(@document_info.tempfile.path).translate
   end
 
   def update
