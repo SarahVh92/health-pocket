@@ -48,7 +48,8 @@ class DocumentsController < ApplicationController
     @qr_code = RQRCode::QRCode.new("https://www.google.com")
     @svg = @qr_code.as_svg(
       offset: 0,
-      color: '000',
+      color: 'dde0ab',
+      module_size: 9,
       shape_rendering: 'crispEdges',
       standalone: true
     )

@@ -1,3 +1,4 @@
+<div class = "show-container">
 <h1>Translate Document</h1>
 <p><%= @document.date %>: Dr.<%= @document.doctor_name %> - <%= @document.country %></p>
 <p><%= @document.comment %></p>
@@ -5,11 +6,10 @@
 
 <%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Search a language"
-  %>
-  <%= submit_tag "Translate", class: "btn btn-primary" %>
+                     params[:query],
+                     class: "form-control",
+                     placeholder: "Search a language..." %>
+  <%= submit_tag "Translate", class: "button" %>
 <% end %>
 <%# ORIGINAL %>
 <%= @document.doc_content %> <br>
@@ -18,9 +18,8 @@
 <%= @translated_sentences %>
 
 
-
-
-
-<div class="container my-5">
+<div class="qr-container">
   <%= @svg.html_safe %>
+
+</div>
 </div>
