@@ -45,6 +45,8 @@ class DocumentsController < ApplicationController
     @svg = @qr_code.as_svg(
       offset: 0,
       color: '000',
+      width: 200,
+      height: 200,
       shape_rendering: 'crispEdges',
       standalone: true
     )
