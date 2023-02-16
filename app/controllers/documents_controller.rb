@@ -1,6 +1,8 @@
 require 'rqrcode'
 
 class DocumentsController < ApplicationController
+  before_action :set_document, only: %i[show edit update]
+
   def index
     if params[:document].present?
       if params[:document] == "Referral Letters"
@@ -40,8 +42,11 @@ class DocumentsController < ApplicationController
   end
 
   def show
+<<<<<<< HEAD
     @lang = "ja"
     @document = Document.find(params[:id])
+=======
+>>>>>>> master
     authorize @document
     @qr_code = RQRCode::QRCode.new("https://www.google.com")
     @svg = @qr_code.as_svg(
@@ -50,19 +55,20 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
+<<<<<<< HEAD
 
     @translated_doc = Translation.new.translate(@lang, @document.doc_content)
+=======
+>>>>>>> master
   end
 
   def update
-    @document = Document.find(params[:id])
     @document.update(document_params)
     authorize @document
     redirect_to documents_path
   end
 
   def edit
-    @document = Document.find(params[:id])
     authorize @document
   end
 
@@ -70,5 +76,9 @@ class DocumentsController < ApplicationController
 
   def document_params
     params.require(:document).permit(:doc_type, :country, :doctor_name, :comment, :date, :photo, :qr_code)
+  end
+
+  def set_document
+    @document = Document.find(params[:id])
   end
 end

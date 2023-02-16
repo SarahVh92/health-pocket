@@ -4,56 +4,102 @@
       <% if @referral_letters.present? %>
         <h1>Referral Letters</h1>
         <% @referral_letters.each do |document| %>
-          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+          <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
+          <%= link_to document_path(document) do %>
+            <span class="material-symbols-outlined">description</span>
+          <% end %>
         <% end %>
       <% elsif @immunization_records.present? %>
         <h1>Immunization Records</h1>
         <% @immunization_records.each do |document| %>
-          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+          <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
+          <%= link_to document_path(document) do %>
+            <span class="material-symbols-outlined">description</span>
+          <% end %>
         <% end %>
       <% elsif @pathology_records.present? %>
         <h1>Pathology Records</h1>
         <% @pathology_records.each do |document| %>
-          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+          <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
+          <%= link_to document_path(document) do %>
+            <span class="material-symbols-outlined">description</span>
+          <% end %>
         <% end %>
       <% elsif @prescription_records.present? %>
         <h1>Prescription Records</h1>
         <% @prescription_records.each do |document| %>
-          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+          <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
+          <%= link_to document_path(document) do %>
+            <span class="material-symbols-outlined">description</span>
+          <% end %>
         <% end %>
       <% elsif @radiology_reports.present? %>
         <h1>Radiology Reports</h1>
         <% @radiology_reports.each do |document| %>
-          <p><%= document.date %><%= document.doctor_name %><%= document.country %></p>
+          <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
+          <p><%= document.comment %></p>
+          <%= link_to document_path(document) do %>
+            <span class="material-symbols-outlined">description</span>
+          <% end %>
         <% end %>
       <% else %>
         <p></p>
       <% end %>
 
     <% else %>
-      <div class="upload-card mt-5">
+
+      <div class = "upload-card mt-5">
         <div>
-          <h5>Upload Document</h5>
-          <%= link_to "Upload", new_document_path, class: "button" %>
+          <p><strong>Upload a Document</strong></p>
+          <%= link_to "Upload", new_document_path, class: "button upload-button" %>
+          </div>
+        </div>
+        <div class = "document-upload-section">
+          <div class = "flex-container-document">
+            <%= link_to documents_path(document: "Referral Letters"), class: "link" do %>
+              <p>
+                <span class="material-symbols-outlined">clinical_notes</span>
+                Referral Letters
+              </p>
+            <% end %>
+          </div>
+          <div class = "flex-container-document">
+            <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
+              <p>
+                <span class="material-symbols-outlined">syringe</span>
+                Immunization Records
+              </p>
+            <% end %>
+          </div>
+          <div class = "flex-container-document">
+            <%= link_to documents_path(document: "Pathology Records"), class: "link" do %>
+              <p>
+                <span class="material-symbols-outlined">labs</span>
+                Pathology Records
+              </p>
+            <% end %>
+          </div>
+          <div class = "flex-container-document">
+            <%= link_to documents_path(document: "Prescription Records"), class: "link" do %>
+              <p>
+                <span class="material-symbols-outlined">pill</span>
+                Prescription Records
+              </p>
+            <% end %>
+          </div>
+          <div class = "flex-container-document">
+            <%= link_to documents_path(document: "Radiology Reports"), class: "link" do %>
+              <p>
+                <span class="material-symbols-outlined">radiology</span>
+                Radiology Reports
+              </p>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div>
-        <%= link_to documents_path(document: "Referral Letters"), class: "link" do %>
-          <p><span class="material-symbols-outlined">clinical_notes</span> Referral Letters</p>
-        <% end %>
-        <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
-          <p><span class="material-symbols-outlined">syringe</span> Immunization Records</p>
-        <% end %>
-        <%= link_to documents_path(document: "Pathology Records"), class: "link" do %>
-          <p><span class="material-symbols-outlined">labs</span> Pathology Records</p>
-        <% end %>
-        <%= link_to documents_path(document: "Prescription Records"), class: "link" do %>
-          <p><span class="material-symbols-outlined">pill</span> Prescription Records</p>
-        <% end %>
-        <%= link_to documents_path(document: "Radiology Reports"), class: "link" do %>
-          <p><span class="material-symbols-outlined">radiology</span> Radiology Reports</p>
-        <% end %>
-      </div>
     <% end %>
-  </div>
 </div>
