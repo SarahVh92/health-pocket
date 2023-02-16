@@ -28,7 +28,9 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     authorize @document
     @document.user = current_user
+
     @document_info = OcrScan.new(document_params[:photo].tempfile.path).scan
+    @document.doc_content = @document_info
 
     if @document.save
       redirect_to documents_path, notice: "Document was successfully uploaded."
@@ -38,6 +40,7 @@ class DocumentsController < ApplicationController
   end
 
   def show
+    @lang = "ja"
     @document = Document.find(params[:id])
     authorize @document
     @qr_code = RQRCode::QRCode.new("https://www.google.com")
@@ -48,7 +51,7 @@ class DocumentsController < ApplicationController
       standalone: true
     )
 
-    @translated_doc = CloudTranslation.new(@document_info.tempfile.path).translate
+    @translated_doc = Translation.new.translate(@lang, @document.doc_content)
   end
 
   def update
