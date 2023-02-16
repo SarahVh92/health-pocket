@@ -7,7 +7,7 @@ class Translation
   end
 
   def translate(lang, text)
-    translation = @translate.translate "text", to: lang
+    translation = @translate.translate text, to: lang
     translated = translation.text
   end
 end

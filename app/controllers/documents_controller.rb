@@ -30,10 +30,9 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     authorize @document
     @document.user = current_user
-
     @document_info = OcrScan.new(document_params[:photo].tempfile.path).scan
-    raise
     @document.doc_content = @document_info
+
 
     if @document.save
       redirect_to documents_path, notice: "Document was successfully uploaded."
@@ -53,8 +52,10 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
-
-    @translated_doc = Translation.new.translate(@lang, @document.doc_content)
+    @translated_sentences = @document.doc_content.split("\n").map do |content|
+      Translation.new.translate(@lang, content)
+    end
+    @translated_sentences = @translated_sentences.join("\n")
   end
 
   def update

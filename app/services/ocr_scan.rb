@@ -8,6 +8,6 @@ class OcrScan
   end
 
   def scan
-    image = @vision.text_detection(image: URI.open(@pdf_url))
+    image = @vision.text_detection(image: URI.open(@pdf_url)).responses[0].text_annotations[0].description
   end
 end
