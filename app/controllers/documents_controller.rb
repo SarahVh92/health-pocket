@@ -32,6 +32,7 @@ class DocumentsController < ApplicationController
     @document.user = current_user
 
     @document_info = OcrScan.new(document_params[:photo].tempfile.path).scan
+    raise
     @document.doc_content = @document_info
 
     if @document.save
@@ -42,11 +43,8 @@ class DocumentsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     @lang = "ja"
-    @document = Document.find(params[:id])
-=======
->>>>>>> master
+
     authorize @document
     @qr_code = RQRCode::QRCode.new("https://www.google.com")
     @svg = @qr_code.as_svg(
@@ -55,11 +53,8 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
-<<<<<<< HEAD
 
     @translated_doc = Translation.new.translate(@lang, @document.doc_content)
-=======
->>>>>>> master
   end
 
   def update
