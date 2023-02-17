@@ -31,6 +31,8 @@ class DocumentsController < ApplicationController
     authorize @document
     @document.user = current_user
     @document_info = OcrScan.new(document_params[:photo].tempfile.path).scan
+    @document.doc_content = @document_info
+
 
     if @document.save
       redirect_to documents_path, notice: "Document was successfully uploaded."
@@ -40,6 +42,8 @@ class DocumentsController < ApplicationController
   end
 
   def show
+    @lang = "ja"
+
     authorize @document
     @qr_code = RQRCode::QRCode.new("https://www.google.com")
     @svg = @qr_code.as_svg(
@@ -49,6 +53,10 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
+    @translated_sentences = @document.doc_content.split("\n").map do |content|
+      Translation.new.translate(@lang, content)
+    end
+    @translated_sentences = @translated_sentences.join("\n")
   end
 
   def update

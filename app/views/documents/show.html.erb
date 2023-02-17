@@ -3,6 +3,7 @@
 <p><%= @document.date %>: Dr.<%= @document.doctor_name %> - <%= @document.country %></p>
 <p><%= @document.comment %></p>
 
+
 <%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
                      params[:query],
@@ -10,8 +11,11 @@
                      placeholder: "Search a language..." %>
   <%= submit_tag "Translate", class: "button" %>
 <% end %>
+<%# ORIGINAL %>
+<%= @document.doc_content %> <br>
 
-<% # <%= @document.scan %>
+<%# TRANSLATED TEXT %>
+<%= @translated_sentences %>
 
 
 <div class="qr-container">
