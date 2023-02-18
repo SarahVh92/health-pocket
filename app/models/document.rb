@@ -6,4 +6,5 @@ class Document < ApplicationRecord
   validates :country, presence: true
   has_one_attached :photo
   DOC_TYPES = ["Immunization Records", "Pathology Records", "Referral Letters", "Prescription Records", "Radiology Reports"]
+  LANGUAGES = ["EN", "JP", "ES", "PT", "FR"]
 end
