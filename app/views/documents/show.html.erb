@@ -4,22 +4,24 @@
 <p><%= @document.comment %></p>
 
 
-<%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
+
+  <%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
                      params[:query],
                      class: "form-control",
                      placeholder: "Search a language..." %>
-  <%= submit_tag "Translate", class: "button" %>
+ <%= submit_tag "Translate", class: "button" %>
 <% end %>
-<%# ORIGINAL %>
-<%= @document.doc_content %> <br>
-
-<%# TRANSLATED TEXT %>
-<%= @translated_sentences %>
 
 
-<div class="qr-container">
-  <%= @svg.html_safe %>
+<%= @sentences %>
 
+ <% if params[:query].present? %>
+<div class =  "container mt-5 text-center" data-controller = "document">
+<button id = "share" class = "button" data-action="click->document#revealContent">Share</button>
 </div>
+<div class="qr-container d-none" data-document-target="qr-code-show">
+  <%= @svg.html_safe %>
+</div>
+<% end %>
 </div>
