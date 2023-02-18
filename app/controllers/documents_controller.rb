@@ -41,6 +41,15 @@ class DocumentsController < ApplicationController
     end
   end
 
+  # def remove_quotations(str)
+  #   if str.start_with?('"')
+  #     str = str.slice(1..-1)
+  #   end
+  #   if str.end_with?('"')
+  #     str = str.slice(0..-2)
+  #   end
+  # end
+
   def show
     authorize @document
     @qr_code = RQRCode::QRCode.new("https://www.google.com")
@@ -53,14 +62,13 @@ class DocumentsController < ApplicationController
     )
     @sentences = @document.doc_content
     if params[:language].present?
-      raise
     end
       if params[:query].present?
        @lang = "ja"
        @translated_sentences = @document.doc_content.split("\n").map do |content|
          Translation.new.translate(@lang, content)
        end
-         @sentences = @translated_sentences.join("\n")
+       @sentences = @translated_sentences.join("\n")
      end
      @sentences
   end
