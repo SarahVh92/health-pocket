@@ -16,3 +16,16 @@
 body {
   background:#5ABAAE
 }
+
+#share {
+  form#edit_document_7{
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+
+    select{
+      min-width: 60vw;
+    }
+  }
+
+}
