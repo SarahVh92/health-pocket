@@ -5,4 +5,6 @@
 import { application } from "./application"
 
 import HelloController from "./hello_controller"
+import DocumentController from "./document_controller"
+application.register("document", DocumentController)
 application.register("hello", HelloController)

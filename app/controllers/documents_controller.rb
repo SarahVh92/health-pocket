@@ -42,8 +42,6 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @lang = "ja"
-
     authorize @document
     @qr_code = RQRCode::QRCode.new("https://www.google.com")
     @svg = @qr_code.as_svg(
@@ -53,10 +51,15 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
-    @translated_sentences = @document.doc_content.split("\n").map do |content|
-      Translation.new.translate(@lang, content)
+    @sentences = @document.doc_content
+    if params[:query].present?
+      @lang = "ja"
+      @translated_sentences = @document.doc_content.split("\n").map do |content|
+        Translation.new.translate(@lang, content)
+      end
+        @sentences = @translated_sentences.join("\n")
     end
-    @translated_sentences = @translated_sentences.join("\n")
+    @sentences
   end
 
   def update

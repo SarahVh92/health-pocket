@@ -10,15 +10,14 @@
   <% end %>
 </div>
 
-<%# ORIGINAL %>
-<%= @document.doc_content %> <br>
+<%= @sentences %>
 
-<%# TRANSLATED TEXT %>
-<%= @translated_sentences %>
-
-
-<div class="qr-container">
-  <%= @svg.html_safe %>
-
+ <% if params[:query].present? %>
+<div class =  "container mt-5 text-center" data-controller = "document">
+<button id = "share" class = "button" data-action="click->document#revealContent">Share</button>
 </div>
+<div class="qr-container d-none" data-document-target="qr-code-show">
+  <%= @svg.html_safe %>
+</div>
+<% end %>
 </div>
