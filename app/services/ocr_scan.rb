@@ -8,6 +8,7 @@ class OcrScan
   end
 
   def scan
-    image = @vision.text_detection(image: URI.open(@pdf_url)).responses[0].text_annotations[0].description
+    image = @vision.text_detection(image: URI.open(@pdf_url))
+    image.responses[0].text_annotations[0].description.split("\n").map(&:downcase).map(&:capitalize)
   end
 end
