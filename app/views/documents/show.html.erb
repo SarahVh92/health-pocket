@@ -10,7 +10,14 @@
   <%= submit_tag "Translate", class: "button" %>
 <% end %>
 
-<%= @sentences %>
+<div class = "uploaded-content">
+<% sentence_array = @sentences.split(",") %>
+<% sentence_array.each do |sentence| %>
+  <li class = "content"><%= sentence.chomp('"').reverse.chomp('"').reverse %></li>
+<% end %>
+ </div>
+
+
 
  <% if params[:query].present? %>
 <div class =  "container mt-5 text-center" data-controller = "document">
