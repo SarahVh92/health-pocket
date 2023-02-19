@@ -80,4 +80,4 @@ To do:
 
 
 ## Contact
-Created by Sarah, Kim and [Paulette](https://pzf.netlify.app/) - feel free to contact us!
+Created by Sarah, Kim and [Paulette](https://paulette-zaldivar-flores.netlify.app/) - feel free to contact us!
