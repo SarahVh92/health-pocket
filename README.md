@@ -24,6 +24,21 @@
   <li>Javascript ES6</li>
   <li>HTML5</li>
   <li>CSS3</li></ul>
+  
+  ## Frameworks
+<ul>
+<li>Rails</li>
+<li>Media Queries</li>
+  <li>Bootstrap</li>
+  </ul>
+  
+  
+## Database
+<ul><li>PostgreSQL</li></ul>
+
+## Communication Tool
+  <ul><li>Axios</li></ul>
+
 
 ## Other Tools
 <ul>
@@ -34,20 +49,6 @@
 <li>Translate API</li>
 <li>Cloudinary</li>
 <li>Webpack</li></ul>
-
-## Database
-<ul><li>PostgreSQL</li></ul>
-
-## Communication Tool
-  <ul><li>Axios</li></ul>
-
-
-## Framework
-<ul>
-<li>Rails</li>
-<li>Media Queries</li>
-  <li>Bootstrap</li>
-  </ul>
 
 
 ## Features
