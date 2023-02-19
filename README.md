@@ -18,14 +18,14 @@
 
 ## Technologies Used
 
-# Languages
+## Languages
 <ul>
   <li>Ruby</li>
   <li>Javascript ES6</li>
   <li>HTML5</li>
   <li>CSS3</li></ul>
 
-# Other Tools
+## Other Tools
 <ul>
 <li>Pundit</li>
 <li>Devise</li>
@@ -35,7 +35,7 @@
 <li>Cloudinary</li>
 <li>Webpack</li></ul>
 
-# Database
+## Database
 <ul><li>PostgreSQL</li></ul>
 
 ## Communication Tool
