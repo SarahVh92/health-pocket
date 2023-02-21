@@ -52,7 +52,8 @@ class DocumentsController < ApplicationController
 
   def show
     authorize @document
-    @qr_code = RQRCode::QRCode.new("https://www.google.com")
+    @qr_code = RQRCode::QRCode.new("www.healthpocket.online#{document_path(@document, format: :pdf)}")
+    # @qr_code = RQRCode::QRCode.new("www.google.com")
     @svg = @qr_code.as_svg(
       offset: 0,
       color: 'dde0ab',
@@ -63,7 +64,7 @@ class DocumentsController < ApplicationController
     @sentences = @document.doc_content
     if params[:language].present?
     end
-      if params[:query].present?
+    if params[:query].present?
       @lang = "ja"
       @translated_sentences = @document.doc_content.split("\n").map do |content|
         Translation.new.translate(@lang, content)
@@ -71,6 +72,20 @@ class DocumentsController < ApplicationController
       @sentences = @translated_sentences.join("\n")
     end
     @sentences
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        # Rails 7
+        # https://github.com/mileszs/wicked_pdf/issues/1005
+        render pdf: "Document: #{@document.doctor_name}", # filename
+                template: "layouts/pdf",
+                formats: [:html],
+                disposition: :inline,
+                layout: 'pdf',
+                locals: { sentences: @sentences }
+      end
+    end
   end
 
   def update
