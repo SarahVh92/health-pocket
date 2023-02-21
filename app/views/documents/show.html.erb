@@ -4,21 +4,21 @@
 <p><%= @document.comment %></p>
 
 <% if params[:query].present? %>
-<div class =  "container mt-3 mb-3 text-center" data-controller = "document">
-<h1 id = "share" data-action="click->document#revealContent">Share Your Document</h1>
-<button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
-          <%= image_tag "qr_code.png", class: "img-fluid icon-image" %>
-</button>
-<button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
-          <%= image_tag "airdrop.png", class: "img-fluid icon-image" %>
-</button>
-<button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
-          <%= image_tag "link.png", class: "img-fluid icon-image" %>
-</button>
-<button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
-          <%= image_tag "mail.png", class: "img-fluid icon-image" %>
-</button>
-</div>
+  <div class =  "container mt-3 mb-3 text-center" data-controller = "document">
+  <h1 id = "share" data-action="click->document#revealContent">Share Your Document</h1>
+  <button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
+            <%= image_tag "qr_code.png", class: "img-fluid icon-image" %>
+  </button>
+  <button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
+            <%= image_tag "airdrop.png", class: "img-fluid icon-image" %>
+  </button>
+  <button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
+            <%= image_tag "link.png", class: "img-fluid icon-image" %>
+  </button>
+  <button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
+            <%= image_tag "mail.png", class: "img-fluid icon-image" %>
+  </button>
+  </div>
 <div class="qr-container mb-3 d-none" data-document-target="qr-code-show">
   <%= @svg.html_safe %>
 </div>
@@ -34,11 +34,10 @@
 <div class = "uploaded-content">
 <% sentence_array = @sentences.split(",") %>
 <% sentence_array.each do |sentence| %>
-  <li class = "content"><%= sentence.chomp('"').reverse.chomp('"').reverse %></li>
+ <% # %>
+ <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
 <% end %>
  </div>
-
-
 
 
 </div>
