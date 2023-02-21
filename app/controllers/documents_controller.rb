@@ -78,7 +78,7 @@ class DocumentsController < ApplicationController
       format.pdf do
         # Rails 7
         # https://github.com/mileszs/wicked_pdf/issues/1005
-        render pdf: "Document: #{@document.doctor_name}", # filename
+        render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
                 template: "layouts/pdf",
                 formats: [:html],
                 disposition: :inline,
