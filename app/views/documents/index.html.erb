@@ -11,6 +11,7 @@
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined scanned-doc">description</span>
           <% end %>
+            <%= link_to 'This post in PDF', document_path(document, format: :pdf) %>
         <% end %>
         </div>
         </div>
