@@ -64,13 +64,13 @@ class DocumentsController < ApplicationController
     if params[:language].present?
     end
       if params[:query].present?
-       @lang = "ja"
-       @translated_sentences = @document.doc_content.split("\n").map do |content|
-         Translation.new.translate(@lang, content)
-       end
-       @sentences = @translated_sentences.join("\n")
-     end
-     @sentences
+      @lang = "ja"
+      @translated_sentences = @document.doc_content.split("\n").map do |content|
+        Translation.new.translate(@lang, content)
+      end
+      @sentences = @translated_sentences.join("\n")
+    end
+    @sentences
   end
 
   def update
