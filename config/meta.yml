@@ -1,0 +1,4 @@
+meta_name: "HealthPocket"
+meta_title: "HealthPocket - Keep your health info with you, wherever you are"
+meta_description: "A mobile application that allows you upload, translate and share medical documents."
+meta_image: "navlogo.png" # should exist in `app/assets/images/`
