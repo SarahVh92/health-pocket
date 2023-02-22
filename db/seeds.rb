@@ -14,10 +14,12 @@ end
 
 puts "Cleaning database..."
 User.destroy_all
+puts "Users deleted"
 Document.destroy_all
+puts "Documents deleted"
 
-puts "Creating offers and users..."
-User.create!(
+puts "\ncreating users..."
+user1 = User.create!(
   first_name: "Nobuhiko",
   address: "Shibuya, Tokyo",
   last_name: "Sato",
@@ -26,8 +28,9 @@ User.create!(
   password: '123456'
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675845948/Health-pocket/Profile%20pictures/Screen_Shot_2023-02-08_at_17.36.02_kc2zns.png", User.last)
+puts "#{user1.first_name} is created"
 
-User.create!(
+user2 = User.create!(
   first_name: "Marie",
   address: "Arakawa, Tokyo",
   last_name: "De Clerck",
@@ -36,8 +39,9 @@ User.create!(
   password: '123456'
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675846612/Health-pocket/Screen_Shot_2023-02-08_at_17.56.31_kvkxk8.png", User.last)
+puts "#{user2.first_name} is created"
 
-User.create!(
+user3 = User.create!(
   first_name: "Ranielle",
   address: "Yokosuka, Kanagawa",
   last_name: "Johnson",
@@ -46,8 +50,10 @@ User.create!(
   password: '123456'
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675845938/Health-pocket/Profile%20pictures/pexels-rodnae-productions-7467950_ulspsr.jpg", User.last)
+puts "#{user3.first_name} is created"
 
-Document.create!(
+puts "\ncreating documents..."
+document1 = Document.create!(
   user: User.all.sample,
   doc_type: "Immunization Records",
   country: "Japan",
@@ -57,9 +63,9 @@ Document.create!(
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943448/Health-pocket/Screen_Shot_2023-02-09_at_20.45.45_t1aqhk.png", Document.last)
-#create
+puts "#{document1.doc_type} is created"
 
-Document.create!(
+document2 = Document.create!(
   user: User.all.sample,
   doc_type: "Pathology Records",
   country: "France",
@@ -69,8 +75,9 @@ Document.create!(
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943804/Health-pocket/Screen_Shot_2023-02-09_at_20.55.54_hulxek.png", Document.last)
+puts "#{document2.doc_type} is created"
 
-Document.create!(
+document3 = Document.create!(
   user: User.all.sample,
   doc_type: "Referral Letters",
   country: "United States of America",
@@ -80,3 +87,4 @@ Document.create!(
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943445/Health-pocket/Referral_letter_hwohzn.png", Document.last)
+puts "#{document3.doc_type} is created"
