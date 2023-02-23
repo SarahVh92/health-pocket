@@ -4,6 +4,7 @@ class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update]
 
   def index
+    @documents = policy_scope(Document)
     if params[:document].present?
       if params[:document] == "Referral Letters"
         @referral_letters = policy_scope(Document).where(doc_type: params[:document])
@@ -16,8 +17,6 @@ class DocumentsController < ApplicationController
       else
         @radiology_reports = policy_scope(Document).where(doc_type: params[:document])
       end
-    else
-      @documents = policy_scope(Document)
     end
   end
 
@@ -64,21 +63,20 @@ class DocumentsController < ApplicationController
     @sentences = @document.doc_content
     if params[:language].present?
     end
-      if params[:query].present?
+    if params[:query].present?
       @lang = "ja"
       @translated_sentences = @document.doc_content.split("\n").map do |content|
         Translation.new.translate(@lang, content)
       end
       @sentences = @translated_sentences.join("\n")
-
-
+    end
 
     respond_to do |format|
       format.html
       format.pdf do
         # Rails 7
         # https://github.com/mileszs/wicked_pdf/issues/1005
-        render pdf: "Document: #{@document.doctor_name}", # filename
+        render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
                 template: "layouts/pdf",
                 formats: [:html],
                 disposition: :inline,
@@ -87,8 +85,6 @@ class DocumentsController < ApplicationController
       end
     end
   end
-  @sentences
-end
 
   def update
     @document.update(document_params)
