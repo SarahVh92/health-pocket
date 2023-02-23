@@ -1,0 +1,9 @@
+<% if params[:form_name] =="body_measurements"%>
+<%= render "shared/body_measurements_form" %>
+<% elsif params[:form_name] =="medical_history"%>
+<%= render "shared/medical_history_form" %>
+<% else  %>
+<%= @user.first_name %>
+<%= link_to "body_measurements", {form_name: "body_measurements"} %>
+<%= link_to "medical_history", {form_name: "medical_history"} %>
+<% end  %>

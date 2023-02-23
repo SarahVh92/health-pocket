@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:show]
+  get "/users/:id/:form_name", to: "users#show"
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -7,4 +9,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :documents, only: [:index, :edit, :update, :new, :create, :show]
+  resources :immunizations, only: %i[index show]
 end
