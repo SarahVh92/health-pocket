@@ -7,7 +7,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="<%= asset_path "manifest.json" %>">
-
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>">
     <meta property="og:type" content="website">
@@ -15,32 +14,23 @@
     <meta property="og:image" content="<%= meta_image %>">
     <meta property="og:description" content="<%= meta_description %>">
     <meta property="og:site_name" content="<%= meta_title %>">
-
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="<% #= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:title" content="<%= meta_title %>">
     <meta name="twitter:description" content="<%= meta_description %>">
-    <meta name="twitter:creator" content="<% #= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
-
     <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
     <%= render "shared/ios_pwa_links" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
-
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-
-
-
     <%= yield %>
   </body>
 </html>
