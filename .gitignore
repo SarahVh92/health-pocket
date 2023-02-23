@@ -42,6 +42,5 @@
 .DS_Store
 
 ocr-key.json
-google-credentials.json
 
 .git.bfg-report
