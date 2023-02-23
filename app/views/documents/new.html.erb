@@ -1,3 +1,7 @@
+<%# <% content_for :meta_title, "#{@document.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<%# <% content_for :meta_description, @document.description %>
+<%# <% content_for :meta_image, cl_image_path(@document.photo.key) if @document.photo.attached? %>
+
 <div class = "container-sm p-4 mt-3">
 <%= simple_form_for @document do |f| %>
   <%= f.input :doctor_name %>
