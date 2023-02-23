@@ -63,7 +63,7 @@ document1 = Document.create!(
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943448/Health-pocket/Screen_Shot_2023-02-09_at_20.45.45_t1aqhk.png", Document.last)
-puts "#{document1.doc_type} is created"
+puts "Document 1 is created"
 
 document2 = Document.create!(
   user: User.all.sample,
@@ -75,7 +75,7 @@ document2 = Document.create!(
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943804/Health-pocket/Screen_Shot_2023-02-09_at_20.55.54_hulxek.png", Document.last)
-puts "#{document2.doc_type} is created"
+puts "Document 2 is created"
 
 document3 = Document.create!(
   user: User.all.sample,
@@ -87,4 +87,4 @@ document3 = Document.create!(
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943445/Health-pocket/Referral_letter_hwohzn.png", Document.last)
-puts "#{document3.doc_type} is created"
+puts "Document 3 is created"
