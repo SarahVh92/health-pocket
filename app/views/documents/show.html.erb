@@ -1,6 +1,6 @@
-<%# <% content_for :meta_title, "#{@document.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<%# <% content_for :meta_description, @document.description %>
-<%# <% content_for :meta_image, cl_image_path(@document.photo.key) if @document.photo.attached? %>
+<% # <% content_for :meta_title, "#{@document.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% # <% content_for :meta_description, @document.description %>
+<% # <% content_for :meta_image, cl_image_path(@document.photo.key) if @document.photo.attached? %>
 
 <div class = "show-container">
   <h1>Translate Document</h1>
@@ -30,15 +30,16 @@
 
   <%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
     <%= select_tag :query,
-                  options_for_select([["English", "en"], ["Japanese", "ja"], ["Spanish", "es"]], params[:query]),
-                  { include_blank: true, class: "form-control" } %>
+                   options_for_select([["English", "en"], ["Japanese", "ja"], ["Spanish", "es"]], params[:query]),
+                   { include_blank: true, class: "form-control" } %>
     <%= submit_tag "Translate", class: "button" %>
   <% end %>
 
   <div class = "uploaded-content">
-    <% sentence_array = @sentences.split(",") %>
-    <% sentence_array.each do |sentence| %>
-      <li class = "content"><%= sentence.chomp('"').reverse.chomp('"').reverse %></li>
-    <% end %>
-  </div>
+<% sentence_array = @sentences.split(",") %>
+<% sentence_array.each do |sentence| %>
+ <% # %>
+ <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
+<% end %>
+ </div>
 </div>
