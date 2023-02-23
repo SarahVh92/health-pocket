@@ -28,8 +28,9 @@ WickedPdf.config ||= {
   #
   # use_xvfb: true,
 }
+
 WickedPdf.config.merge!({
   layout: "pdf.html.erb",
   page_size: "A4",
-  orientation: "Portrait",
+  orientation: "Portrait"
 })
