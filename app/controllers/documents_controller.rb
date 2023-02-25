@@ -61,7 +61,7 @@ class DocumentsController < ApplicationController
     )
 
     if params[:query].present?
-      @lang = "ja"
+      @lang = params[:query] || "ja"
 
       @translated_sentences = @document.doc_content.split("\n").map do |content|
         Translation.new.translate(@lang, content)
@@ -72,8 +72,8 @@ class DocumentsController < ApplicationController
         format.html
         format.pdf do
           render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
-                  template: "documents/show",
-                  formats: [:html],
+                  template: "layouts/pdf",
+                  formats: [:pdf],
                   disposition: :inline,
                   layout: 'pdf',
                   locals: { sentences: @sentences },
@@ -81,23 +81,23 @@ class DocumentsController < ApplicationController
                   show_as_html: params[:debug].present?
         end
       end
-
-    else
-      @sentences = @document.doc_content
-
-      # respond_to do |format|
-      #   format.html
-      #   format.pdf do
-      #     render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
-      #             template: "documents/show",
-      #             formats: [:html],
-      #             disposition: :inline,
-      #             layout: 'pdf',
-      #             locals: { sentences: @sentences }
-      #   end
-      # end
-
     end
+    # else
+    #   @sentences = @document.doc_content
+
+    #   respond_to do |format|
+    #     format.html
+    #     format.pdf do
+    #       render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
+    #               template: "layouts/pdf",
+    #               formats: [:pdf],
+    #               disposition: :inline,
+    #               layout: 'pdf',
+    #               locals: { sentences: @sentences }
+    #     end
+    #   end
+
+    # end
   end
 
   def update

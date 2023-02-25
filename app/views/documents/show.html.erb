@@ -37,7 +37,7 @@
       <% # %>
       <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
     <% end %>
-    <%= link_to "PDF", document_path(@document, format: :pdf), class: "link-pdf" %>
+    <%= link_to "PDF", document_path(@document, format: :pdf, query: params[:query]), class: "link-pdf" %>
   </div>
 
 </div>
