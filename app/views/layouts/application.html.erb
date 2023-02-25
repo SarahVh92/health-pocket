@@ -24,11 +24,18 @@
     <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
     <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
     <%= render "shared/ios_pwa_links" %>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body>
+    <div class="splash">
+      <% #= render "shared/splash_page" %>
+    </div>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>

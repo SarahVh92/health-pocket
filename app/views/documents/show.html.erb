@@ -6,7 +6,7 @@
   <% if params[:query].present? %>
     <div class =  "container mt-3 mb-3 text-center" data-controller = "document">
       <h1 id = "share" data-action="click->document#revealContent">Share Your Document</h1>
-      <button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
+      <button id = "share" class = "home-icon-card"  data-action="click->document#revealContent" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <%= image_tag "qr_code.png", class: "img-fluid icon-image" %>
       </button>
       <button id = "share" class = "home-icon-card"  data-action="click->document#revealContent">
