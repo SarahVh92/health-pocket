@@ -1,0 +1,25 @@
+<% if params[:form_name] =="body_measurements"%>
+<%= render "shared/body_measurements_form" %>
+<% elsif params[:form_name] =="medical_history"%>
+<%= render "shared/medical_history_form" %>
+<% elsif params[:form_name] =="prescription_record"%>
+<%= render "shared/prescription_record" %>
+<% elsif params[:form_name] =="allergies"%>
+<%= render "shared/allergies" %>
+<% elsif params[:form_name] =="immunizations"%>
+<%= render "shared/immunizations" %>
+<% elsif params[:form_name] =="procedures"%>
+<%= render "shared/procedures" %>
+<% elsif params[:form_name] =="dentistry"%>
+<%= render "shared/dentistry" %>
+
+<% else  %>
+<%= @user.first_name %>
+<%= link_to "body_measurements", {form_name: "body_measurements"} %>
+<%= link_to "medical_history", {form_name: "medical_history"} %>
+<%= link_to "prescription_record", {form_name: "prescription_record"} %>
+<%= link_to "allergies", {form_name: "allergies"} %>
+<%= link_to "immunizations", {form_name: "immunizations"} %>
+<%= link_to "procedures", {form_name: "procedures"} %>
+<%= link_to "dentistry", {form_name: "dentistry"} %>
+<% end  %>

@@ -1,33 +1,56 @@
+<% if current_user %>
 
-<div class="homepage-container">
-<span><h1 class = "welcome">Welcome back Sarah!<h1></span>
-<div class = "cards-wrapper">
-    <div class = "row g-1 d-flex justify-content-center">
-      <div class = "col">
-      <%= link_to documents_path do %>
-        <div class = "card home-icon-card">
-          <%= image_tag "documents.png", class: "img-fluid icon-image" %>
+  <div class="homepage-container">
+  <span><h1 class = "welcome">Welcome back Marie!<h1></span>
+  <div class = "cards-wrapper">
+      <div class = "row g-1 d-flex justify-content-center">
+        <div class = "col">
+        <%= link_to documents_path do %>
+          <div class = "card home-icon-card">
+            <%= image_tag "documents.png", class: "img-fluid icon-image" %>
+          </div>
+        <% end %>
+          <p class = "card-label">Documents</p>
         </div>
-      <% end %>
-        <p class = "card-label">Documents</p>
-      </div>
-  <div class = "col">
-    <div class = "card home-icon-card">
-        <%= image_tag "calendar.png", class: "img-fluid icon-image" %>
-      </div>
-    <p class = "card-label">Dates</p>
-</div>
-  <div class = "col">
-    <div class = "card home-icon-card">
-        <%= image_tag "world.png", class: "img-fluid icon-image" %>
+    <div class = "col">
+      <div class = "card home-icon-card">
+          <%= image_tag "calendar.png", class: "img-fluid icon-image" %>
         </div>
-      <p class = "card-label">Travel Info</p>
+      <p class = "card-label">Dates</p>
   </div>
-  <div class = "col">
-    <div class = "card home-icon-card">
-      <%= image_tag "tools.png", class: "img-fluid icon-image" %>
+    <div class = "col">
+      <div class = "card home-icon-card">
+          <%= image_tag "world.png", class: "img-fluid icon-image" %>
+          </div>
+        <p class = "card-label">Travel Info</p>
+    </div>
+    <div class = "col">
+      <div class = "card home-icon-card">
+        <%= image_tag "tools.png", class: "img-fluid icon-image" %>
+          </div>
+          <p class = "card-label">Tools</p>
+      </div>
+    </div>
+  </div>
+    <div class = "card health-card">
+      <h3 class="text-center">Health Status</h3>
+        <%= image_tag "health.png", class: "img-fluid health-card-image" %>
+        <div class = "flex-container">
+            <a class = "button">Allergies</a>
+            <p class = "health-info">Latex </p>
         </div>
-        <p class = "card-label">Tools</p>
+        <div class = "flex-container">
+            <a class = "button">Medication</a>
+            <p class = "health-info">Imuran</p>
+        </div>
+        <div class = "flex-container">
+            <a class = "button">Illness</a>
+            <p class = "health-info">Anemia</p>
+        </div>
+        <div class = "flex-container">
+            <a class = "button">Hospital</a>
+            <p class = "health-info">St.Lukes</p>
+        </div>
     </div>
   </div>
 </div>
@@ -36,7 +59,9 @@
       <%= image_tag "health.png", class: "img-fluid health-card-image" %>
       <div class = "flex-container">
           <a class = "button">Allergies</a>
-          <p class = "health-info">Latex </p>
+          <p class = "health-info">
+            <%= current_user.allergies %>
+          </p>
       </div>
       <div class = "flex-container">
           <a class = "button">Medication</a>
@@ -50,5 +75,12 @@
           <a class = "button">Hospital</a>
           <p class = "health-info">St.Lukes</p>
       </div>
+<% else %>
+  <div class="logo-container d-flex">
+  <div class = "app-title animate__animated animate__fadeIn animate__delay-1s	1s ">
+    <%= image_tag "splash_logo.png", class: "splash-logo img-fluid  " %>
+    <h1 class = "title">Health Pocket<h1>
+    <p class = "app-slogan">Your health companion</p>
+    </div>
   </div>
-</div>
+<% end %>

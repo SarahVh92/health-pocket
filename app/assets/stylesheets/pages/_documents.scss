@@ -73,6 +73,19 @@ margin-left: 20px;
   margin-left: 30px;
 }
 
+.link-pdf{
+  margin-left: 5px;
+  text-decoration: none;
+  color: #ffffff;
+
+
+}
+
+.link-pdf:hover{
+  color:#808080;
+}
+
+
 @media only screen and (max-width: 600px) {
   .upload-card{
     height: 200px;
