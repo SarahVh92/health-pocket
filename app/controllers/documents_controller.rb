@@ -51,7 +51,7 @@ class DocumentsController < ApplicationController
 
   def show
     authorize @document
-    @qr_code = RQRCode::QRCode.new("http://192.168.1.69:3000/#{document_path(@document, format: :pdf)}")
+    @qr_code = RQRCode::QRCode.new("www.healthpocket.online#{document_path(@document, format: :pdf)}")
     @svg = @qr_code.as_svg(
       offset: 0,
       color: 'dde0ab',
