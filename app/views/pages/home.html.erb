@@ -53,6 +53,28 @@
         </div>
     </div>
   </div>
+</div>
+  <div class = "card health-card">
+    <h3 class="text-center">Health Status</h3>
+      <%= image_tag "health.png", class: "img-fluid health-card-image" %>
+      <div class = "flex-container">
+          <a class = "button">Allergies</a>
+          <p class = "health-info">
+            <%= current_user.allergies %>
+          </p>
+      </div>
+      <div class = "flex-container">
+          <a class = "button">Medication</a>
+          <p class = "health-info">Imuran</p>
+      </div>
+      <div class = "flex-container">
+          <a class = "button">Illness</a>
+          <p class = "health-info">Anemia</p>
+      </div>
+      <div class = "flex-container">
+          <a class = "button">Hospital</a>
+          <p class = "health-info">St.Lukes</p>
+      </div>
 <% else %>
   <div class="logo-container d-flex">
   <div class = "app-title animate__animated animate__fadeIn animate__delay-1s	1s ">
