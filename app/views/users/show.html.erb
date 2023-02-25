@@ -14,12 +14,60 @@
 <%= render "shared/dentistry" %>
 
 <% else  %>
-<%= @user.first_name %>
-<%= link_to "body_measurements", {form_name: "body_measurements"} %>
-<%= link_to "medical_history", {form_name: "medical_history"} %>
-<%= link_to "prescription_record", {form_name: "prescription_record"} %>
-<%= link_to "allergies", {form_name: "allergies"} %>
-<%= link_to "immunizations", {form_name: "immunizations"} %>
-<%= link_to "procedures", {form_name: "procedures"} %>
-<%= link_to "dentistry", {form_name: "dentistry"} %>
+
+<div class = "show-container-user">
+<div class = "documents-flex">
+<h1><%= @user.first_name %>'s
+Health Profile<h1>
+</div>
+<div class = "documents-flex">
+<span class="material-symbols-outlined md-40 health-icon-card">
+accessibility_new
+<div><p><%= link_to "Body Measurements", {form_name: "body_measurements"} %></p></div>
+</span>
+
+<span class="material-symbols-outlined md-40 health-icon-card ms-3">
+stethoscope
+<div><p><%= link_to "Medical History", {form_name: "medical_history"}%></p></div>
+</span>
+</div>
+
+<div class = "documents-flex">
+<span class="material-symbols-outlined md-40 health-icon-card">
+medication_liquid
+<div><p><%= link_to "Prescriptions", {form_name: "prescription_record"}%></p></div>
+</span>
+
+<span class="material-symbols-outlined md-40 health-icon-card ms-3">
+allergy
+<div><p><%= link_to "Allergies", {form_name: "allergies"} %></p></div>
+</span>
+</div>
+
+<div class = "documents-flex">
+<span class="material-symbols-outlined md-40 health-icon-card">
+vaccines
+<div><p><%= link_to "Vaccines", {form_name: "immunizations"}%></p></div>
+</span>
+
+
+<span class="material-symbols-outlined md-40 health-icon-card ms-3">
+surgical
+<div><p><%= link_to "Procedures", {form_name: "procedures"}%></p></div>
+</span>
+</div>
+
+<div class = "documents-flex">
+<span class="material-symbols-outlined md-40 health-icon-card">
+dentistry
+<div><p><%= link_to "Dentistry", {form_name: "dentistry"}%></p></div>
+</span>
+
+
+<span class="material-symbols-outlined md-40 health-icon-card ms-3">
+clinical_notes
+<div><p>Doctor Log</p></div>
+</span>
+</div>
 <% end  %>
+</div>
