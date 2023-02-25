@@ -11,10 +11,10 @@
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined scanned-doc">description</span>
           <% end %>
-          <%# TO REMOVE ONCE QR WORKS %>
-            <%= link_to 'This post in PDF', document_path(document, format: :pdf) %>
+          <% # TO REMOVE ONCE QR WORKS %>
+            <%= link_to "PDF", document_path(document, format: :pdf), class: "link-pdf" %>
+            </div>
         <% end %>
-        </div>
         </div>
       <% elsif @immunization_records.present? %>
       <div class = "documents-scanned-container">
@@ -26,8 +26,9 @@
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined scanned-doc">description</span>
           <% end %>
+           </div>
         <% end %>
-        </div>
+
         </div>
       <% elsif @pathology_records.present? %>
           <div class = "documents-scanned-container">
@@ -39,8 +40,8 @@
           <%= link_to document_path(document) do %>
             <span class="material-symbols-outlined scanned-doc">description</span>
           <% end %>
+          </div>
         <% end %>
-        </div>
         </div>
       <% elsif @prescription_records.present? %>
       <div class = "documents-scanned-container">
