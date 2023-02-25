@@ -72,7 +72,6 @@ class DocumentsController < ApplicationController
       @sentences = @translated_sentences.join("\n")
     end
 
-
     respond_to do |format|
       format.html
       format.pdf do
