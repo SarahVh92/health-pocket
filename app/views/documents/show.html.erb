@@ -3,8 +3,6 @@
   <p><%= @document.date %>: Dr.<%= @document.doctor_name %> - <%= @document.country %></p>
   <p><%= @document.comment %></p>
 
-
-
   <%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
     <%= select_tag :query,
                    options_for_select([["Chinese", "zh"], ["Dutch", "nl"], ["English", "en"], ["French", "fr"], ["German", "de"],["Italian", "it"], ["Japanese", "ja"], ["Korean", "ko"], ["Polish", "pl"], ["Portuguese", "pt"], ["Spanish", "es"], ["Swedish", "sv"], ["Turkish", "tr"]], params[:query]),
@@ -18,7 +16,6 @@
       <% # %>
       <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
     <% end %>
-    <%= link_to "PDF", document_path(@document, format: :pdf, query: params[:query]), class: "link-pdf" %>
   </div>
 </div>
 
@@ -37,6 +34,9 @@
     <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
       <%= image_tag "mail.png", class: "img-fluid icon-image" %>
     </button>
+
+    <%# COMMENT-OUT IF YOU WANT TO CREATE A PDF BUTTON %>
+    <%# <%= link_to "PDF", document_path(@document, format: :pdf, query: params[:query]), class: "link-pdf" %>
   <% end %>
 </div>
 
