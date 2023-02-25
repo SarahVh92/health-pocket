@@ -3,16 +3,20 @@
   'FILL' 0,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 48
+  'opsz' 60
 }
 
 .material-symbols-outlined {
+  padding-top: 20px;
+  text-align: center;
   padding: 20px;
   background-color: #f0f8ff;
   border-radius: 10px;
   box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   color: black;
+
+
 }
 
 .material-symbols-outlined:hover{
