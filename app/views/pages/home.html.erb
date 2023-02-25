@@ -36,7 +36,9 @@
       <%= image_tag "health.png", class: "img-fluid health-card-image" %>
       <div class = "flex-container">
           <a class = "button">Allergies</a>
-          <p class = "health-info">Latex </p>
+          <p class = "health-info">
+            <%= current_user.allergies %>
+          </p>
       </div>
       <div class = "flex-container">
           <a class = "button">Medication</a>
