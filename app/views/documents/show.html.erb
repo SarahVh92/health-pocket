@@ -4,10 +4,11 @@
   <p><%= @document.comment %></p>
 
 
+
   <%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
     <%= select_tag :query,
-                   options_for_select([["English", "en"], ["Japanese", "ja"], ["Spanish", "es"]], params[:query]),
-                   { include_blank: true, class: "form-control" } %>
+                   options_for_select([["Chinese", "zh"], ["Dutch", "nl"], ["English", "en"], ["French", "fr"], ["German", "de"],["Italian", "it"], ["Japanese", "ja"], ["Korean", "ko"], ["Polish", "pl"], ["Portuguese", "pt"], ["Spanish", "es"], ["Swedish", "sv"], ["Turkish", "tr"]], params[:query]),
+                   { include_blank: "Choose a language", class: "form-control" } %>
     <%= submit_tag "Translate", class: "button" %>
   <% end %>
 

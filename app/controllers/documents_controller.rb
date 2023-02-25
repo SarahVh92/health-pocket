@@ -60,6 +60,7 @@ class DocumentsController < ApplicationController
       standalone: true
     )
 
+    @sentences = @document.doc_content
     if params[:query].present?
       @lang = params[:query] || "ja"
 
