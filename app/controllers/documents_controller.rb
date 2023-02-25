@@ -76,24 +76,26 @@ class DocumentsController < ApplicationController
                   formats: [:html],
                   disposition: :inline,
                   layout: 'pdf',
-                  locals: { sentences: @sentences }
+                  locals: { sentences: @sentences },
+                  encoding: "UTF-8",
+                  show_as_html: params[:debug].present?
         end
       end
 
     else
       @sentences = @document.doc_content
 
-      respond_to do |format|
-        format.html
-        format.pdf do
-          render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
-                  template: "documents/show",
-                  formats: [:html],
-                  disposition: :inline,
-                  layout: 'pdf',
-                  locals: { sentences: @sentences }
-        end
-      end
+      # respond_to do |format|
+      #   format.html
+      #   format.pdf do
+      #     render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
+      #             template: "documents/show",
+      #             formats: [:html],
+      #             disposition: :inline,
+      #             layout: 'pdf',
+      #             locals: { sentences: @sentences }
+      #   end
+      # end
 
     end
   end
