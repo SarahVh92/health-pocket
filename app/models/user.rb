@@ -11,4 +11,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :phone_number, presence: true
   validates :address, presence: true
+  ALLERGIES = ["Animals", "Drug Allergy", "Eggs", "Milk", "Mold Allergy", "Pollen", "Peanuts", "Shellfish", "Sesame", "Soy", "Tree Nuts"]
 end
