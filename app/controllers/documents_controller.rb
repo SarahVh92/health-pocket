@@ -59,9 +59,6 @@ class DocumentsController < ApplicationController
       shape_rendering: 'crispEdges',
       standalone: true
     )
-    @sentences = @document.doc_content
-    if params[:language].present?
-    end
 
     if params[:query].present?
       @lang = "ja"
@@ -69,20 +66,35 @@ class DocumentsController < ApplicationController
       @translated_sentences = @document.doc_content.split("\n").map do |content|
         Translation.new.translate(@lang, content)
       end
-
       @sentences = @translated_sentences.join("\n")
-    end
 
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
-                template: "layouts/pdf",
-                formats: [:html],
-                disposition: :inline,
-                layout: 'pdf',
-                locals: { sentences: @sentences }
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
+                  template: "documents/show",
+                  formats: [:html],
+                  disposition: :inline,
+                  layout: 'pdf',
+                  locals: { sentences: @sentences }
+        end
       end
+
+    else
+      @sentences = @document.doc_content
+
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
+                  template: "documents/show",
+                  formats: [:html],
+                  disposition: :inline,
+                  layout: 'pdf',
+                  locals: { sentences: @sentences }
+        end
+      end
+
     end
   end
 

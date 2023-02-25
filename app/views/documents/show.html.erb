@@ -32,10 +32,12 @@
   <% end %>
 
   <div class = "uploaded-content">
-<% sentence_array = @sentences.split(",") %>
-<% sentence_array.each do |sentence| %>
- <% # %>
- <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
-<% end %>
- </div>
+    <% sentence_array = @sentences.split(",") %>
+    <% sentence_array.each do |sentence| %>
+      <% # %>
+      <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
+    <% end %>
+    <%= link_to "PDF", document_path(@document, format: :pdf), class: "link-pdf" %>
+  </div>
+
 </div>
