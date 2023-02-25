@@ -51,8 +51,7 @@ class DocumentsController < ApplicationController
 
   def show
     authorize @document
-    @qr_code = RQRCode::QRCode.new("www.healthpocket.online#{document_path(@document, format: :pdf)}")
-    # @qr_code = RQRCode::QRCode.new("www.google.com")
+    @qr_code = RQRCode::QRCode.new("http://192.168.1.69:3000/#{document_path(@document, format: :pdf)}")
     @svg = @qr_code.as_svg(
       offset: 0,
       color: 'dde0ab',
@@ -65,16 +64,18 @@ class DocumentsController < ApplicationController
     end
     if params[:query].present?
       @lang = "ja"
+
       @translated_sentences = @document.doc_content.split("\n").map do |content|
         Translation.new.translate(@lang, content)
       end
+
       @sentences = @translated_sentences.join("\n")
     end
+
+
     respond_to do |format|
       format.html
       format.pdf do
-        # Rails 7
-        # https://github.com/mileszs/wicked_pdf/issues/1005
         render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
                 template: "layouts/pdf",
                 formats: [:html],

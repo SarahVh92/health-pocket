@@ -12,7 +12,7 @@
     <div id="header">
     </div>
     <% @sentences.split(",", -1).each do |sentence| %>
-      <%= sentence %>
+      <%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %>
     <% end %>
   </body>
 </html>
