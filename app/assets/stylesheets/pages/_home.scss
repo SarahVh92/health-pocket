@@ -1,1 +1,61 @@
-// Specific CSS for your home-page
+.welcome{
+  padding: 40px;
+  padding-bottom: 0px;
+}
+
+.homepage-container{
+  .button{
+    width: 130px;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.card-label{
+  font-size :12px;
+  padding-top: 10px;
+  text-align: center;
+
+}
+
+.health-card-image{
+  height: 200px;
+  width: 220px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 10px;
+
+}
+
+.health-info{
+  font-size: 20px;
+  margin: 0px;
+}
+
+.flex-container{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .health-card-image{
+    height: 100px;
+    width: 120px;
+    margin: 0 auto;
+  }
+
+  .homepage-container{
+    .button{
+      width: 110px;
+    }
+  }
+
+}

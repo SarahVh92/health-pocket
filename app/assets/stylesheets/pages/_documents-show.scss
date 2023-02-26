@@ -56,9 +56,22 @@ p{
   box-shadow: inset 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
-
 .sharing-icon-card:active{
   box-shadow: 0px 0px 0px #999999;
+}
+
+.modal-content{
+  background-color: #2a2828;
+  color: #ffffff;
+}
+
+.btn-close{
+  background-color:#ffffff;
+}
+
+.modal-footer{
+  font-size: 16px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -67,5 +80,8 @@ p{
     width: 70px;
     height: 70px;
     border-radius: 20px;
+  }
+  .modal-footer{
+    font-size: 14px;
   }
 }

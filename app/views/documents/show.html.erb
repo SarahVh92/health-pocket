@@ -20,7 +20,7 @@
 </div>
 
 <% if params[:query].present? %>
-  <div class =  "container text-center share-options animate__animated animate__slideInUp" data-controller = "document">
+  <div class =  "container fixed-bottom text-center share-options animate__animated animate__slideInUp" data-controller = "document">
     <h3 id = "share" data-action="click->document#revealContent">Share Your Document</h3>
     <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <%= image_tag "qr_code.png", class: "img-fluid icon-image" %>
@@ -40,6 +40,24 @@
   <% end %>
 </div>
 
-<div class="qr-container mb-3 d-none" data-document-target="qr-code-show">
-  <%= @svg.html_safe %>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Scan</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="qr-container mb-3 d-none" data-document-target="qr-code-show">
+      <%= @svg.html_safe %>
+      </div>
+      </div>
+      <div class="modal-footer">
+      <p>This QR code leads you to a PDF of your translated document</p>
+      </div>
+    </div>
+  </div>
 </div>
