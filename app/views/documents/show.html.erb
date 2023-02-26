@@ -3,45 +3,43 @@
   <p><%= @document.date %>: Dr.<%= @document.doctor_name %> - <%= @document.country %></p>
   <p><%= @document.comment %></p>
 
-
-
   <%= form_with url: document_path(@document), method: :get, class: "d-flex" do %>
     <%= select_tag :query,
-                   options_for_select([["English", "en"], ["Japanese", "ja"], ["Spanish", "es"]], params[:query]),
-                   { include_blank: true, class: "form-control" } %>
+                   options_for_select([["Chinese", "zh"], ["Dutch", "nl"], ["English", "en"], ["French", "fr"], ["German", "de"],["Italian", "it"], ["Japanese", "ja"], ["Korean", "ko"], ["Polish", "pl"], ["Portuguese", "pt"], ["Spanish", "es"], ["Swedish", "sv"], ["Turkish", "tr"]], params[:query]),
+                   { include_blank: "Choose a language", class: "form-control" } %>
     <%= submit_tag "Translate", class: "button" %>
   <% end %>
 
   <div class = "uploaded-content">
-<% sentence_array = @sentences.split(",") %>
-<% sentence_array.each do |sentence| %>
- <% # %>
- <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
-<% end %>
- </div>
-
-
+    <% sentence_array = @sentences.split(",") %>
+    <% sentence_array.each do |sentence| %>
+      <% # %>
+      <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
+    <% end %>
+  </div>
 </div>
 
- <% if params[:query].present? %>
-    <div class =  "container text-center share-options animate__animated animate__slideInUp" data-controller = "document">
-      <h3 id = "share" data-action="click->document#revealContent">Share Your Document</h3>
-      <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <%= image_tag "qr_code.png", class: "img-fluid icon-image" %>
-      </button>
-      <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
-                <%= image_tag "airdrop.png", class: "img-fluid icon-image" %>
-      </button>
-      <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
-                <%= image_tag "link.png", class: "img-fluid icon-image" %>
-      </button>
-      <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
-                <%= image_tag "mail.png", class: "img-fluid icon-image" %>
-      </button>
+<% if params[:query].present? %>
+  <div class =  "container text-center share-options animate__animated animate__slideInUp" data-controller = "document">
+    <h3 id = "share" data-action="click->document#revealContent">Share Your Document</h3>
+    <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <%= image_tag "qr_code.png", class: "img-fluid icon-image" %>
+    </button>
+    <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
+      <%= image_tag "airdrop.png", class: "img-fluid icon-image" %>
+    </button>
+    <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
+      <%= image_tag "link.png", class: "img-fluid icon-image" %>
+    </button>
+    <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
+      <%= image_tag "mail.png", class: "img-fluid icon-image" %>
+    </button>
 
+    <%# COMMENT-OUT IF YOU WANT TO CREATE A PDF BUTTON %>
+    <%# <%= link_to "PDF", document_path(@document, format: :pdf, query: params[:query]), class: "link-pdf" %>
   <% end %>
 </div>
 
- <div class="qr-container mb-3 d-none" data-document-target="qr-code-show">
-      <%= @svg.html_safe %>
-      </div>
+<div class="qr-container mb-3 d-none" data-document-target="qr-code-show">
+  <%= @svg.html_safe %>
+</div>
