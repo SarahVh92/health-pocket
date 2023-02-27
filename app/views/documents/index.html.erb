@@ -9,7 +9,7 @@
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
           <p class = "ms-3"><%= document.comment %></p>
           <%= link_to document_path(document) do %>
-            <span class="material-symbols-outlined scanned-doc">description</span>
+            <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
           <% end %>
           <% # TO REMOVE ONCE QR WORKS %>
             <%= link_to "PDF", document_path(document, format: :pdf), class: "link-pdf" %>
@@ -24,7 +24,7 @@
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
           <p class = "ms-3"><%= document.comment %></p>
           <%= link_to document_path(document) do %>
-            <span class="material-symbols-outlined scanned-doc">description</span>
+            <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
           <% end %>
             </div>
         <% end %>
@@ -38,7 +38,7 @@
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
           <p class = "ms-3"><%= document.comment %></p>
           <%= link_to document_path(document) do %>
-            <span class="material-symbols-outlined scanned-doc">description</span>
+            <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
           <% end %>
           </div>
         <% end %>
@@ -51,7 +51,7 @@
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
           <p class = "ms-3"><%= document.comment %></p>
           <%= link_to document_path(document) do %>
-            <span class="material-symbols-outlined scanned-doc">description</span>
+            <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
           <% end %>
         <% end %>
         </div>
@@ -64,7 +64,7 @@
           <p><%= document.date %>: Dr.<%= document.doctor_name %> - <%= document.country %></p>
           <p class = "ms-3"><%= document.comment %></p>
           <%= link_to document_path(document) do %>
-            <span class="material-symbols-outlined scanned-doc">description</span>
+            <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
           <% end %>
         <% end %>
         </div>
@@ -83,9 +83,9 @@
         </div>
         <div class = "document-upload-section">
           <div class = "flex-container-document">
-            <%= link_to documents_path(document: "Referral Letters"), class: "link" do %>
+            <%= link_to documents_path(document: "Referral Letters"), class: "link " do %>
               <p>
-                <span class="material-symbols-outlined">clinical_notes</span>
+                <span class="material-symbols-outlined document-icon-button">clinical_notes</span>
                 Referral Letters
               </p>
             <% end %>
@@ -93,7 +93,7 @@
           <div class = "flex-container-document">
             <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
               <p>
-                <span class="material-symbols-outlined">syringe</span>
+                <span class="material-symbols-outlined document-icon-button">syringe</span>
                 Immunization Records
               </p>
             <% end %>
@@ -101,7 +101,7 @@
           <div class = "flex-container-document">
             <%= link_to documents_path(document: "Pathology Records"), class: "link" do %>
               <p>
-                <span class="material-symbols-outlined">labs</span>
+                <span class="material-symbols-outlined document-icon-button">labs</span>
                 Pathology Records
               </p>
             <% end %>
@@ -109,7 +109,7 @@
           <div class = "flex-container-document">
             <%= link_to documents_path(document: "Prescription Records"), class: "link" do %>
               <p>
-                <span class="material-symbols-outlined">pill</span>
+                <span class="material-symbols-outlined document-icon-button">pill</span>
                 Prescription Records
               </p>
             <% end %>
@@ -117,7 +117,7 @@
           <div class = "flex-container-document">
             <%= link_to documents_path(document: "Radiology Reports"), class: "link" do %>
               <p>
-                <span class="material-symbols-outlined">radiology</span>
+                <span class="material-symbols-outlined document-icon-button">radiology</span>
                 Radiology Reports
               </p>
             <% end %>
