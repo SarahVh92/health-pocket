@@ -38,22 +38,22 @@
     <h3 class="text-center">Health Status</h3>
       <%= image_tag "health.png", class: "img-fluid health-card-image" %>
       <div class = "flex-container">
-          <a class = "button">Allergies</a>
+      <span class="material-symbols-outlined md-40">allergy<div><p class = "health-status"><%= link_to "Allergy", {form_name: "allergies"} %></p></div></span>
           <p class = "health-info">
             <%= current_user.allergies %>
           </p>
       </div>
       <div class = "flex-container">
-          <a class = "button">Medication</a>
+    <span class="material-symbols-outlined md-40 ">medication_liquid<div><p class = "health-status">Prescription</p></div></span>
           <p class = "health-info">Imuran</p>
       </div>
       <div class = "flex-container">
-          <a class = "button">Illness</a>
+          <span class="material-symbols-outlined md-40">stethoscope<div><p class = "health-status">Illness</p></div></span>
           <p class = "health-info">Anemia</p>
       </div>
       <div class = "flex-container">
-          <a class = "button">Hospital</a>
-          <p class = "health-info">St.Lukes</p>
+          <span class="material-symbols-outlined md-40">clinical_notes<div><p class = "health-status">Doctor Log</p></div></span>
+          <p class = "health-info">Dr.Levitt</p>
       </div>
 <% else %>
   <div class="logo-container d-flex">
