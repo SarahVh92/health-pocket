@@ -35,18 +35,23 @@
       <%= image_tag "link.png", class: "img-fluid icon-image" %>
     </button>
 
-    <%= mail_to "doctor@email.com", nil,
+
+
+
+
+    <%= mail_to "doctor@email.com",
       cc: "marie@email.com",
       subject: "Medical Document",
-      body: 'Please find enclosed my medical document.' do %>
-      <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
-        <%= image_tag "mail.png", class: "img-fluid icon-image" %>
-      </button>
+      body: raw("Please find enclosed my medical document. #{link_to 'PDF', document_path(@document, format: :pdf, query: params[:query]), class: 'link-pdf'}") do %>
+        <button id = "share" class = "sharing-icon-card" data-action="click->document#revealContent">
+          <%= image_tag "mail.png", class: "img-fluid icon-image" %>
+        </button>
     <% end %>
 
 
-    <%# COMMENT-OUT IF YOU WANT TO CREATE A PDF BUTTON %>
-    <%# <%= link_to "PDF", document_path(@document, format: :pdf, query: params[:query]), class: "link-pdf" %>
+
+
+
   <% end %>
 </div>
 
