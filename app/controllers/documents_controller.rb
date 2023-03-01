@@ -33,7 +33,6 @@ class DocumentsController < ApplicationController
     @document_info = OcrScan.new(document_params[:photo].tempfile.path).scan
     @document.doc_content = @document_info
 
-
     if @document.save
       redirect_to edit_document_path(@document), notice: "Document was successfully uploaded."
     else
@@ -61,27 +60,25 @@ class DocumentsController < ApplicationController
       standalone: true
     )
 
-    @sentences = @document.doc_content
+    @sentences = JSON.parse(@document.doc_content)
+
     if params[:query].present?
-      @lang = params[:query] || "ja"
-
-      @translated_sentences = @document.doc_content.split("\n").map do |content|
-        Translation.new.translate(@lang, content)
+      @sentences = @sentences.map do |content|
+        Translation.new.translate(params[:query], content)
       end
-      @sentences = @translated_sentences.join("\n")
+    end
 
-      respond_to do |format|
-        format.html
-        format.pdf do
-          render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
-                  template: "layouts/pdf",
-                  formats: [:pdf],
-                  disposition: :inline,
-                  layout: 'pdf',
-                  locals: { sentences: @sentences },
-                  encoding: "UTF-8",
-                  show_as_html: params[:debug].present?
-        end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
+                template: "layouts/pdf",
+                formats: [:pdf],
+                disposition: :inline,
+                layout: 'pdf',
+                locals: { sentences: @sentences },
+                encoding: "UTF-8",
+                show_as_html: params[:debug].present?
       end
     end
     # else

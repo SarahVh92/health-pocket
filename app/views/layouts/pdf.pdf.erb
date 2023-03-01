@@ -14,8 +14,8 @@
   <body>
     <div id="header">
     </div>
-    <% @sentences.split(",", -1).each do |sentence| %>
-      <%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %>
+    <% @sentences.each do |sentence| %>
+      <%= sentence %>
     <% end %>
   </body>
 </html>
