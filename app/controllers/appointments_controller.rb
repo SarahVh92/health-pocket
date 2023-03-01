@@ -1,9 +1,38 @@
 class AppointmentsController < ApplicationController
-  def show
-    @appointments = current_user.appointments
+  # before_action :set_appointment, only: %i[show]
+  def index
+    @appointments = policy_scope(Appointment)
   end
 
   def new
-    @appointments = Appointment.new
+    @appointment = Appointment.new
+    authorize @appointment
   end
+
+  def create
+    @appointment = Appointment.new(appointment_params)
+    authorize @appointment
+    @appointment.user = current_user
+      respond_to do |format|
+        if @appointment.save
+          format.html { redirect_to @appointment, notice: 'Event was successfully created.' }
+          format.json { render :show, status: :created, location: @appointment }
+        else
+          format.html { render :new }
+          format.json { render json: @appointment.errors, status: :unprocessable_entity }
+        end
+      end
+    # rescue Google::Apis::ClientError => error
+    #   redirect_to events_path, notice: error.message
+    # end
+  end
+
+  private
+  def appointment_params
+    params.require(:appointment).permit(:title, :start_date, :end_date, :description, :address)
+  end
+
+  # def set_appointment
+  #   @appointment = Appointment.find(params[:id])
+  # end
 end

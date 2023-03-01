@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :documents, only: [:index, :edit, :update, :new, :create, :show]
   resources :immunizations, only: %i[index show]
+  resources :appointments, only: [:index, :new, :create]
 end
