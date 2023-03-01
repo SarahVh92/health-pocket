@@ -4,6 +4,7 @@ class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update]
 
   def index
+    @document = Document.new
     @documents = policy_scope(Document)
     if params[:document].present?
       if params[:document] == "Referral Letters"
@@ -34,7 +35,7 @@ class DocumentsController < ApplicationController
 
 
     if @document.save
-      redirect_to documents_path, notice: "Document was successfully uploaded."
+      redirect_to edit_document_path(@document), notice: "Document was successfully uploaded."
     else
       render :new, status: :unprocessable_entity
     end
