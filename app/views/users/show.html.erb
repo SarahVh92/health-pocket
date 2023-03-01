@@ -1,73 +1,75 @@
 <% if params[:form_name] =="body_measurements"%>
-<%= render "shared/body_measurements_form" %>
+  <%= render "shared/body_measurements_form" %>
 <% elsif params[:form_name] =="medical_history"%>
-<%= render "shared/medical_history_form" %>
+  <%= render "shared/medical_history_form" %>
 <% elsif params[:form_name] =="prescription_record"%>
-<%= render "shared/prescription_record" %>
+  <%= render "shared/prescription_record" %>
 <% elsif params[:form_name] =="allergies"%>
-<%= render "shared/allergies" %>
+  <%= render "shared/allergies" %>
 <% elsif params[:form_name] =="immunizations"%>
-<%= render "shared/immunizations" %>
+  <%= render "shared/immunizations" %>
 <% elsif params[:form_name] =="procedures"%>
-<%= render "shared/procedures" %>
+  <%= render "shared/procedures" %>
 <% elsif params[:form_name] =="dentistry"%>
-<%= render "shared/dentistry" %>
+  <%= render "shared/dentistry" %>
 
 <% else  %>
 
-<div class = "show-container-user">
-<div class = "documents-flex">
-<h1><%= @user.first_name %>'s
-Health Profile<h1>
-</div>
-<div class = "documents-flex">
-<span class="material-symbols-outlined md-40 health-icon-card">
-accessibility_new
-<div><p><%= link_to "Body Measurements", {form_name: "body_measurements"} %></p></div>
-</span>
+  <div class = "show-container-user">
 
-<span class="material-symbols-outlined md-40 health-icon-card ms-3">
-stethoscope
-<div><p><%= link_to "Medical History", {form_name: "medical_history"}%></p></div>
-</span>
-</div>
+    <div class = "documents-flex">
+      <h1><%= @user.first_name %>'s Health Profile<h1>
+    </div>
 
-<div class = "documents-flex">
-<span class="material-symbols-outlined md-40 health-icon-card">
-medication_liquid
-<div><p><%= link_to "Prescriptions", {form_name: "prescription_record"}%></p></div>
-</span>
+    <div class = "documents-flex">
+      <span class="material-symbols-outlined md-40 health-icon-card">
+      accessibility_new
+      <div><p><%= link_to "Body Measurements", {form_name: "body_measurements"} %></p>
+      </div>
+      </span>
 
-<span class="material-symbols-outlined md-40 health-icon-card ms-3">
-allergy
-<div><p><%= link_to "Allergies", {form_name: "allergies"} %></p></div>
-</span>
-</div>
+      <span class="material-symbols-outlined md-40 health-icon-card ms-3">
+      stethoscope
+      <div><p><%= link_to "Medical History", {form_name: "medical_history"}%></p></div>
+      </span>
+    </div>
 
-<div class = "documents-flex">
-<span class="material-symbols-outlined md-40 health-icon-card">
-vaccines
-<div><p><%= link_to "Vaccines", {form_name: "immunizations"}%></p></div>
-</span>
+    <div class = "documents-flex">
+      <span class="material-symbols-outlined md-40 health-icon-card">
+      medication_liquid
+      <div><p><%= link_to "Prescriptions", {form_name: "prescription_record"}%></p></div>
+      </span>
 
+      <span class="material-symbols-outlined md-40 health-icon-card ms-3">
+      allergy
+      <div><p><%= link_to "Allergies", {form_name: "allergies"} %></p></div>
+      </span>
+    </div>
 
-<span class="material-symbols-outlined md-40 health-icon-card ms-3">
-surgical
-<div><p><%= link_to "Procedures", {form_name: "procedures"}%></p></div>
-</span>
-</div>
-
-<div class = "documents-flex">
-<span class="material-symbols-outlined md-40 health-icon-card">
-dentistry
-<div><p><%= link_to "Dentistry", {form_name: "dentistry"}%></p></div>
-</span>
+    <div class = "documents-flex">
+      <span class="material-symbols-outlined md-40 health-icon-card">
+      vaccines
+      <div><p><%= link_to "Vaccines", {form_name: "immunizations"}%></p></div>
+      </span>
 
 
-<span class="material-symbols-outlined md-40 health-icon-card ms-3">
-clinical_notes
-<div><p>Doctor Log</p></div>
-</span>
-</div>
+      <span class="material-symbols-outlined md-40 health-icon-card ms-3">
+      surgical
+      <div><p><%= link_to "Procedures", {form_name: "procedures"}%></p></div>
+      </span>
+    </div>
+
+    <div class = "documents-flex">
+      <span class="material-symbols-outlined md-40 health-icon-card">
+      dentistry
+      <div><p><%= link_to "Dentistry", {form_name: "dentistry"}%></p></div>
+      </span>
+
+
+      <span class="material-symbols-outlined md-40 health-icon-card ms-3">
+      clinical_notes
+      <div><p>Doctor Log</p></div>
+      </span>
+    </div>
+  </div>
 <% end  %>
-</div>
