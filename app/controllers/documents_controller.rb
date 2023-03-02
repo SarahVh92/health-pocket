@@ -43,15 +43,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-  # def remove_quotations(str)
-  #   if str.start_with?('"')
-  #     str = str.slice(1..-1)
-  #   end
-  #   if str.end_with?('"')
-  #     str = str.slice(0..-2)
-  #   end
-  # end
-
   def show
     authorize @document
     @qr_code = RQRCode::QRCode.new("www.healthpocket.online#{document_path(@document, format: :pdf)}")
@@ -84,22 +75,6 @@ class DocumentsController < ApplicationController
                 show_as_html: params[:debug].present?
       end
     end
-    # else
-    #   @sentences = @document.doc_content
-
-    #   respond_to do |format|
-    #     format.html
-    #     format.pdf do
-    #       render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
-    #               template: "layouts/pdf",
-    #               formats: [:pdf],
-    #               disposition: :inline,
-    #               layout: 'pdf',
-    #               locals: { sentences: @sentences }
-    #     end
-    #   end
-
-    # end
   end
 
   def update
