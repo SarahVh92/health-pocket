@@ -62,7 +62,18 @@ gem 'google-cloud-translate'
 gem 'acts-as-taggable-on', '~> 9.0'
 gem "rqrcode", "~> 2.0"
 gem 'wicked_pdf'
-gem "wkhtmltopdf-binary"
+# gem "wkhtmltopdf-binary"
+# gem 'wkhtmltopdf-heroku', '2.12.6.0'
+
+# Manually added
+group :production do
+  gem 'wkhtmltopdf-heroku', '2.12.6.0'
+end
+
+# Manually added
+group :development do
+  gem 'wkhtmltopdf-binary'
+end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
