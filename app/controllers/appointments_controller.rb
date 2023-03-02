@@ -13,15 +13,13 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     authorize @appointment
     @appointment.user = current_user
-      respond_to do |format|
         if @appointment.save
-          format.html { redirect_to @appointment, notice: 'Event was successfully created.' }
-          format.json { render :show, status: :created, location: @appointment }
+          redirect_to appointments_path, notice: 'Event was successfully created.'
+
         else
-          format.html { render :new }
-          format.json { render json: @appointment.errors, status: :unprocessable_entity }
+         render :new, status: :unprocessable_entity
         end
-      end
+
     # rescue Google::Apis::ClientError => error
     #   redirect_to events_path, notice: error.message
     # end
