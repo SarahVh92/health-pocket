@@ -1,9 +1,11 @@
 require 'rqrcode'
+require 'Date'
 
 class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update]
 
   def index
+    @document = Document.new
     @documents = policy_scope(Document)
     if params[:document].present?
       if params[:document] == "Referral Letters"
@@ -31,9 +33,11 @@ class DocumentsController < ApplicationController
     @document.user = current_user
     @document_info = OcrScan.new(document_params[:photo].tempfile.path).scan
     @document.doc_content = @document_info
-
+    @content = JSON.parse(@document.doc_content)
+    @document.doctor_name = @content[-4]
+    @document.date = Date.parse(@content[0])
     if @document.save
-      redirect_to documents_path, notice: "Document was successfully uploaded."
+      redirect_to edit_document_path(@document), notice: "Document was successfully uploaded."
     else
       render :new, status: :unprocessable_entity
     end

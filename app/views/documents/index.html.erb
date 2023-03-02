@@ -78,7 +78,13 @@
       <div class = "upload-card mt-5">
         <div>
           <p><strong>Upload a Document</strong></p>
-          <%= link_to "Upload", new_document_path, class: "button upload-button" %>
+          <div data-controller="submit-form">
+            <%= simple_form_for @document, data: { action: "change->submit-form#send", remote:true } do |f| %>
+              <%= f.input :photo, as: :file, wrapper_html:{class: "input-container"}%>
+          <% end %>
+          </div>
+
+          <%#= link_to "Upload", new_document_path, class: "button upload-button" %>
           </div>
         </div>
         <div class = "document-upload-section">
