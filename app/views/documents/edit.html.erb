@@ -1,10 +1,8 @@
 <%= simple_form_for @document do |f| %>
-  <%= f.input :doctor_name %>
+  <%= f.input :doctor_name, placeholder: @document.doctor_name %>
   <%= f.input :country %>
   <%= f.input :date, html5: true %>
   <%= f.input :doc_type, collection: Document::DOC_TYPES, label: 'Add category' %>
   <%= f.input :comment %>
-  <%= f.button :submit, "Upload Document", class: "button" %>
+  <%= f.button :submit, "Save", class: "button" %>
 <% end %>
-
-<%= @document.photo %>
