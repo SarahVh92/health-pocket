@@ -32,23 +32,22 @@
     </button>
 
 
-    <%= mail_to "doctor@email.com",
+    <%# <%= mail_to "doctor@email.com",
       cc: "marie@email.com",
       subject: "Medical Document",
       body: raw("Please find enclosed my medical document. #{link_to 'PDF', document_path(@document, format: :pdf, query: params[:query]), class: 'link-pdf'}") do %>
-        <button id = "share" class = "sharing-icon-card" data-action="click->document#revealContent">
+        <%# <button id = "share" class = "sharing-icon-card" data-action="click->document#revealContent">
           <%= image_tag "mail.png", class: "img-fluid icon-image" %>
-        </button>
-    <% end %>
+        <%# </button>  %>
+    <%# end %>
 
-<%# <a href="mail_to:doctor@email.com?cc=marie@email.com&subject=Medical%20Document&body=Dear%20Doctor%0D%0DPlease%20find%20enclosed%20my%20medical%20document%2E%%0D
-%0D%0DKind%20regards%2C%0DMarie%20De%20Clerck"></a> %>
+    <a href="mailto:doctor@email.com?subject=Medical%20Document&cc=marie@email.com&body=Dear%20Doctor%2C%0D%0DPlease%20find%20enclosed%20my%20medical%20document%2E%0D%0D<%= document_url(@document, format: :pdf, query: params[:query]) %> %0D%0DKind%20regards%2C%0DMarie%20De%20Clerck">
+      <button id = "share" class = "sharing-icon-card"    data-action="click->document#revealContent">
+          <%= image_tag "mail.png", class: "img-fluid icon-image" %>
+      </button></a>
 
   <% end %>
 </div>
-
-
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
