@@ -1,5 +1,5 @@
 require 'rqrcode'
-require 'Date'
+require 'date'
 
 class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update]
