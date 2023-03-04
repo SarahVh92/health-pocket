@@ -8,4 +8,5 @@ class Document < ApplicationRecord
   has_one_attached :photo
   DOC_TYPES = ["Immunization Records", "Pathology Records", "Referral Letters", "Prescription Records", "Radiology Reports"]
   LANGUAGES = ["EN", "JP", "ES", "PT", "FR"]
+  COUNTRIES = ["Japan", "United States", "England", "China", "Korea"]
 end
