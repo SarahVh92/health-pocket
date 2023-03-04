@@ -1,5 +1,6 @@
-<div class = "container-sm p-4 mt-3 form">
-<%= simple_form_for @appointment do |f| %>
+<div class = "container-sm p-4 mt-3">
+<h1 class = "appointments-header text-center"> Make An Appointment</h1>
+<%= simple_form_for(@appointment, html: { class: "appointment-form" }) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :start_date, html5: true %>
