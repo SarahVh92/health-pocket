@@ -10,14 +10,16 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Gcal.new
+    @appointment = Appointment.new(appointment_params)
+    @gcal_service = Gcal.new
+    appointment = {
+        title: @appointment.title,
+        address: @appointment.address,
+        start_date: @appointment.start_date,
+        description: @appointment.description
+      }
+    @gcal_service.post_to_gcalendar(appointment, @service)
     authorize @appointment
-    begin
-      result = service.insert_appointment(CALENDAR_ID, @appointment)
-      puts "Appointment created: #{result.title}"
-    rescue
-      puts "Appointment already exists"
-    end
     @appointment.user = current_user
       if @appointment.save
         redirect_to appointments_path, notice: 'Appointment was successfully created.'
