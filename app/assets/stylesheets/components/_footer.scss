@@ -1,0 +1,43 @@
+
+.fab{
+  color:#5ABAAE;
+}
+
+.fab:hover{
+  color:#726f6f;
+}
+
+#footer{
+  background-color: #E3E3E3;
+  width: 100%;
+  margin-top: auto;
+  padding-bottom: 20px;
+}
+
+.footer{
+  flex-shrink: 0;
+}
+
+.copyright{
+  color:#726f6f;
+}
+
+.footer-logo{
+  height: 60px;
+  width:60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .copyright{
+    font-size: 12px;
+  }
+
+  .footer-logo{
+    height: 50px;
+    width:50px;
+}
+
+}

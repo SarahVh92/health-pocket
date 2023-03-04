@@ -13,6 +13,17 @@
 
 //global css
 
+html, body{
+  height:100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+}
+.content{
+  flex: 1 0 auto;
+}
 #translate {
   form#edit_document_7{
     display: flex;
@@ -28,7 +39,7 @@
 
 a{
   text-decoration: none;
-  color:black;
+
 }
 
 a:hover{
