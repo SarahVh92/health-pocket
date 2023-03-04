@@ -1,6 +1,6 @@
 <div class = "container-sm p-4 mt-3">
-<h1>Body Measurements</h1>
-<%= simple_form_for @user do |f| %>
+<h1 class = "user-header">Body Measurements</h1>
+<%= simple_form_for(@user, html: { class: "user-form" }) do |f| %>
   <%= f.input :height %>
   <%= f.input :weight %>
   <%= f.input :body_fat%>
