@@ -18,26 +18,36 @@
 <% if params[:query].present? %>
   <div class =  "container fixed-bottom text-center share-options animate__animated animate__slideInUp" data-controller = "document">
     <h3 id = "share" data-action="click->document#revealContent">Share Your Document</h3>
+
     <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent" data-bs-toggle="modal" data-bs-target="#exampleModal">
       <%= image_tag "qr_code.png", class: "img-fluid icon-image" %>
     </button>
+
     <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
       <%= image_tag "airdrop.png", class: "img-fluid icon-image" %>
     </button>
+
     <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
       <%= image_tag "link.png", class: "img-fluid icon-image" %>
     </button>
-    <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
-      <%= image_tag "mail.png", class: "img-fluid icon-image" %>
-    </button>
 
-    <%# COMMENT-OUT IF YOU WANT TO CREATE A PDF BUTTON %>
-    <%# <%= link_to "PDF", document_path(@document, format: :pdf, query: params[:query]), class: "link-pdf" %>
+
+    <%# <%= mail_to "doctor@email.com",
+      cc: "marie@email.com",
+      subject: "Medical Document",
+      body: raw("Please find enclosed my medical document. #{link_to 'PDF', document_path(@document, format: :pdf, query: params[:query]), class: 'link-pdf'}") do %>
+        <%# <button id = "share" class = "sharing-icon-card" data-action="click->document#revealContent">
+          <%= image_tag "mail.png", class: "img-fluid icon-image" %>
+        <%# </button>  %>
+    <%# end %>
+
+    <a href="mailto:doctor@email.com?subject=Medical%20Document&cc=marie@email.com&body=Dear%20Doctor%2C%0D%0DPlease%20find%20enclosed%20my%20medical%20document%2E%0D%0D<%= document_url(@document, format: :pdf, query: params[:query]) %> %0D%0DKind%20regards%2C%0DMarie%20De%20Clerck">
+      <button id = "share" class = "sharing-icon-card"    data-action="click->document#revealContent">
+          <%= image_tag "mail.png", class: "img-fluid icon-image" %>
+      </button></a>
+
   <% end %>
 </div>
-
-
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
