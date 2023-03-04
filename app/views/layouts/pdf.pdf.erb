@@ -7,15 +7,37 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= wicked_pdf_stylesheet_link_tag "show" %>
+    <%= wicked_pdf_stylesheet_link_tag "pdf" %>
     <%= wicked_pdf_stylesheet_pack_tag "application" %>
 
   </head>
   <body>
     <div id="header">
     </div>
-    <% @sentences.split(",", -1).each do |sentence| %>
-      <%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %>
-    <% end %>
+      <%= @sentences[0] %>
+      <br><br>
+      <%= @sentences[1] %>
+      <br><br>
+      <%= @sentences[2] %>
+      <%= @sentences[3] %>
+      <br>
+      <%= @sentences[4] %>
+      <%= @sentences[5] %>
+      <%= @sentences[6] %>
+      <br>
+      <%= @sentences[7] %>
+      <%= @sentences[8] %>
+      <br><br>
+      <%= @sentences[9] %>
+      <br><br>
+      <%= @sentences[10] %>
+      <br><br>
+      <%= @sentences[11] %>
+      <br>
+      <%= @sentences[12] %>
+      <br>
+      <%= @sentences[13] %>
+      <br>
+      <%= @sentences[14] %>
   </body>
 </html>

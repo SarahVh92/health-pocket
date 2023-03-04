@@ -11,11 +11,7 @@
   <% end %>
 
   <div class = "uploaded-content">
-    <% sentence_array = @sentences.split(",") %>
-    <% sentence_array.each do |sentence| %>
-      <% # %>
-      <p class = "content"><%= sentence[1..-2].gsub(/((&quot;)|"|(&quot))/, "") %></p>
-    <% end %>
+    <p class = "content"><%= @sentences[0] %><br><br><%= @sentences[1] %><br><br><%= @sentences[2] %><%= @sentences[3] %><br><%= @sentences[4] %><%= @sentences[5] %><%= @sentences[6] %><br><%= @sentences[7] %><%= @sentences[8] %><br><br><%= @sentences[9] %><br><br><%= @sentences[10] %><br><br><%= @sentences[11] %><br><%= @sentences[12] %><br><%= @sentences[13] %><br><%= @sentences[14] %></p>
   </div>
 </div>
 

@@ -1,9 +1,11 @@
 require 'rqrcode'
+require 'date'
 
 class DocumentsController < ApplicationController
   before_action :set_document, only: %i[show edit update]
 
   def index
+    @document = Document.new
     @documents = policy_scope(Document)
     if params[:document].present?
       if params[:document] == "Referral Letters"
@@ -31,23 +33,15 @@ class DocumentsController < ApplicationController
     @document.user = current_user
     @document_info = OcrScan.new(document_params[:photo].tempfile.path).scan
     @document.doc_content = @document_info
-
-
+    @content = JSON.parse(@document.doc_content)
+    @document.doctor_name = @content[-4]
+    @document.date = Date.parse(@content[0])
     if @document.save
-      redirect_to documents_path, notice: "Document was successfully uploaded."
+      redirect_to edit_document_path(@document), notice: "Document was successfully uploaded."
     else
       render :new, status: :unprocessable_entity
     end
   end
-
-  # def remove_quotations(str)
-  #   if str.start_with?('"')
-  #     str = str.slice(1..-1)
-  #   end
-  #   if str.end_with?('"')
-  #     str = str.slice(0..-2)
-  #   end
-  # end
 
   def show
     authorize @document
@@ -60,45 +54,27 @@ class DocumentsController < ApplicationController
       standalone: true
     )
 
-    @sentences = @document.doc_content
+    @sentences = JSON.parse(@document.doc_content)
+
     if params[:query].present?
-      @lang = params[:query] || "ja"
-
-      @translated_sentences = @document.doc_content.split("\n").map do |content|
-        Translation.new.translate(@lang, content)
-      end
-      @sentences = @translated_sentences.join("\n")
-
-      respond_to do |format|
-        format.html
-        format.pdf do
-          render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
-                  template: "layouts/pdf",
-                  formats: [:pdf],
-                  disposition: :inline,
-                  layout: 'pdf',
-                  locals: { sentences: @sentences },
-                  encoding: "UTF-8",
-                  show_as_html: params[:debug].present?
-        end
+      @sentences = @sentences.map do |content|
+        Translation.new.translate(params[:query], content)
       end
     end
-    # else
-    #   @sentences = @document.doc_content
 
-    #   respond_to do |format|
-    #     format.html
-    #     format.pdf do
-    #       render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
-    #               template: "layouts/pdf",
-    #               formats: [:pdf],
-    #               disposition: :inline,
-    #               layout: 'pdf',
-    #               locals: { sentences: @sentences }
-    #     end
-    #   end
-
-    # end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@document.user.last_name} - #{@document.user.first_name}", # filename
+                template: "layouts/pdf",
+                formats: [:pdf],
+                disposition: :inline,
+                layout: 'pdf',
+                locals: { sentences: @sentences },
+                encoding: "UTF-8",
+                show_as_html: params[:debug].present?
+      end
+    end
   end
 
   def update
