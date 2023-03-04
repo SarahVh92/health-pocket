@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(allergies: params["user"]["allergies"].reject(&:empty?))
       redirect_to root_path
       authorize @user
     else

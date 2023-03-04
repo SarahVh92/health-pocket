@@ -40,12 +40,23 @@
       <div class = "flex-container">
       <span class="material-symbols-outlined md-40">allergy<div><p class = "health-status"><%= link_to "Allergy", {form_name: "allergies"} %></p></div></span>
           <p class = "health-info">
-            <%= current_user.allergies %>
+
+          <div class="allergies">
+          <% current_user.allergies.each do |allergy| %>
+            <span class="badge text-bg-secondary" ><%= allergy %></span>
+          <% end %>
+          </div>
+
           </p>
+
       </div>
       <div class = "flex-container">
     <span class="material-symbols-outlined md-40 ">medication_liquid<div><p class = "health-status">Prescription</p></div></span>
-          <p class = "health-info">Imuran</p>
+          <%# <p class = "health-info">Imuran</p> %>
+          <div class="allergies">
+          <span class="badge text-bg-secondary" >Imuran</span>
+          <span class="badge text-bg-secondary" >Desloratadine 30g</span>
+      </div>
       </div>
       <div class = "flex-container">
           <span class="material-symbols-outlined md-40">stethoscope<div><p class = "health-status">Illness</p></div></span>
