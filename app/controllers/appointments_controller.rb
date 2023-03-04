@@ -10,24 +10,30 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.new(appointment_params)
+    @appointment = Gcal.new
     authorize @appointment
+    begin
+      result = service.insert_appointment(CALENDAR_ID, @appointment)
+      puts "Appointment created: #{result.title}"
+    rescue
+      puts "Appointment already exists"
+    end
     @appointment.user = current_user
-        if @appointment.save
-          redirect_to appointments_path, notice: 'Event was successfully created.'
+      if @appointment.save
+        redirect_to appointments_path, notice: 'Appointment was successfully created.'
 
-        else
-         render :new, status: :unprocessable_entity
-        end
+      else
+        render :new, status: :unprocessable_entity
+      end
 
     # rescue Google::Apis::ClientError => error
-    #   redirect_to events_path, notice: error.message
+    #   redirect_to appointments_path, notice: error.message
     # end
   end
 
   private
   def appointment_params
-    params.require(:appointment).permit(:title, :start_date, :end_date, :description, :address)
+    params.require(:appointment).permit(:title, :start_date, :description, :address)
   end
 
   # def set_appointment
