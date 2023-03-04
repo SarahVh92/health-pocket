@@ -1,0 +1,25 @@
+import { Controller } from "@hotwired/stimulus"
+import TomSelect from "tom-select";
+
+// Connects to data-controller="tom-select"
+export default class extends Controller {
+  static values = { options: Object }
+    connect() {
+      new TomSelect(
+        this.element,
+        this.optionsValue,
+        {
+          plugins: {
+            remove_button:{
+              title:'Remove this item',
+            }
+          },
+          persist: false,
+          create: true,
+          onDelete: function(values) {
+            return confirm(values.length > 1 ? 'Are you sure you want to remove these ' + values.length + ' items?' : 'Are you sure you want to remove "' + values[0] + '"?');
+          }
+        }
+  );
+  }
+}
