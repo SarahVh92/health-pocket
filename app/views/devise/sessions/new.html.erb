@@ -1,31 +1,23 @@
-
-<div class  = "container login-container">
-<div class = "login-card">
-<h2 class = "login-title">Log in</h2>
-<div class = "logo-flex">
-<%= image_tag "navlogo.png", class: "login-logo" %>
-</div>
-
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
+<div class  = "container mt-5">
+  <div class = "login-card">
+    <h2 class = "login-title">Log in</h2>
+    <div class = "logo-flex">
+      <%= image_tag "navlogo.png", class: "login-logo" %>
+    </div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "email", class: "login-input" } %>
-    <%= f.input :password,
+        <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password",class: "login-input"} %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: "login-button mt-3" %>
+      </div>
+    <% end %>
   </div>
-
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in", class: "login-button mt-3" %>
-  </div>
-<% end %>
- </div>
-
-<%# <%= render "devise/shared/links" %>
-
 </div>

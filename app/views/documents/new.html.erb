@@ -1,10 +1,12 @@
-<div class = "container-sm p-4 mt-3 form">
-<%= simple_form_for @document do |f| %>
-  <%= f.input :doctor_name %>
-  <%= f.input :country %>
-  <%= f.input :date, html5: true %>
-  <%= f.input :doc_type, collection: Document::DOC_TYPES, label: 'Add category' %>
-  <%= f.input :comment %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, "Upload Document", class: "button" %>
-<% end %>
+<div class = "container-sm p-4 mt-3">
+  <h1 class = "document-header">Document Information</h1>
+  <%= simple_form_for(@document, html: { class: "document-form" }) do |f| %>
+    <%= f.input :doctor_name %>
+    <%= f.input :country %>
+    <%= f.input :date, html5: true %>
+    <%= f.input :doc_type, collection: Document::DOC_TYPES, label: 'Add category' %>
+    <%= f.input :comment %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "Upload Document", class: "button" %>
+  <% end %>
+</div>

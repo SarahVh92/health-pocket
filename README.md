@@ -45,8 +45,9 @@
 <li>Pundit</li>
 <li>Devise</li>
 <li>Rqrcode</li>
-<li>Vision API</li>
-<li>Translate API</li>
+<li>Google Vision API</li>
+<li>Google Calendar API</li>
+<li>Google Translate API</li>
 <li>Cloudinary</li>
 <li>Webpack</li></ul>
 

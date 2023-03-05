@@ -1,18 +1,15 @@
 <div class = "container">
-<h1 class = "text-center mt-5 appointments-header "> Upcoming Appointments</h1>
-
-<% @appointments.each do |appointment| %>
-<div class = "appointment-card mb-3">
-<%= image_tag "appointment.png", class: "img-fluid rounded-start appointment-img" %>
-<ul>
-<li><strong><%= appointment.title %></strong></li>
-<li>Description:<%= appointment.description %></li>
-<li>Address:<%= appointment.address %></li>
-<li> Date: <%= appointment.start_date.strftime("%b %d, %Y") %></li>
-<ul>
-</div>
-<% end %>
-
-
-<%= link_to "New Appointment", new_appointment_path, class: "button" %>
-</div>
+  <h1 class = "text-center mt-5 appointments-header "> Upcoming Appointments</h1>
+  <% @appointments.each do |appointment| %>
+    <div class = "appointment-card mb-5">
+      <%= image_tag "appointment.png", class: "img-fluid rounded-start appointment-img" %>
+      <ul>
+        <li><strong><%= appointment.title %></strong></li>
+        <li>Description: <%= appointment.description %></li>
+        <li>Address: <%= appointment.address %></li>
+        <li>Date: <%= appointment.start_date.strftime("%b %d, %Y") %></li>
+        <ul>
+        </div>
+      <% end %>
+      <%= link_to "New Appointment", new_appointment_path, class: "button" %>
+    </div>
