@@ -5,6 +5,8 @@
         <h1></span>
         <div class = "cards-wrapper">
           <div class = "row g-1 d-flex justify-content-center">
+
+            <%# Documents %>
             <div class = "col">
               <%= link_to documents_path do %>
                 <div class = "card home-icon-card">
@@ -13,26 +15,33 @@
               <% end %>
               <p class = "card-label">Documents</p>
             </div>
+
+            <%# Appointments %>
             <div class = "col">
               <%= link_to appointments_path do %>
                 <div class = "card home-icon-card">
                   <%= image_tag "calendar.png", class: "img-fluid icon-image" %>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
               <p class = "card-label">Appointments</p>
             </div>
-            <div class = "col">
-              <div class = "card home-icon-card">
-                <%= image_tag "world.png", class: "img-fluid icon-image" %>
-              </div>
-              <p class = "card-label">Travel Info</p>
-            </div>
+
+            <%# Travel info %>
+            <%# <div class = "col">
+              <div class = "card home-icon-card"> %>
+                <%#= image_tag "world.png", class: "img-fluid icon-image" %>
+              <%# </div> %>
+              <%# <p class = "card-label">Travel Info</p> %>
+            <%# </div> %>
+
+            <%# Tools %>
             <div class = "col">
               <div class = "card home-icon-card">
                 <%= image_tag "tools.png", class: "img-fluid icon-image" %>
               </div>
               <p class = "card-label">Tools</p>
             </div>
+
           </div>
         </div>
       </div>
@@ -40,10 +49,12 @@
     <div class = "card health-card">
       <h3 class="text-center">Health Status</h3>
       <%= image_tag "health.png", class: "img-fluid health-card-image" %>
+
+      <%# Allergy %>
       <div class = "flex-container">
         <span class="material-symbols-outlined md-40">allergy
           <div>
-            <p class = "health-status"><%= link_to "Allergy", {form_name: "allergies"} %></p>
+            <p class = "health-status"><%= link_to "Allergies", {form_name: "allergies"} %></p>
           </div>
         </span>
         <div class="allergies">
@@ -56,10 +67,12 @@
           <% end %>
         </div>
       </div>
+
+      <%# Prescriptions %>
       <div class = "flex-container">
         <span class="material-symbols-outlined md-40 ">medication_liquid
           <div>
-            <p class = "health-status">Prescription</p>
+            <p class = "health-status">Prescriptions</p>
           </div>
         </span>
         <div class="allergies">
@@ -67,10 +80,12 @@
           <span class="badge text-bg-secondary" >Doxycyline 30g</span>
         </div>
       </div>
+
+      <%# Illnesses %>
       <div class = "flex-container">
         <span class="material-symbols-outlined md-40">stethoscope
           <div>
-            <p class = "health-status">Illness</p>
+            <p class = "health-status">Illnesses</p>
           </div>
         </span>
         <div class="allergies">
@@ -78,7 +93,8 @@
           <span class="badge text-bg-secondary" >Migraine</span>
         </div>
       </div>
-      <div class = "flex-container">
+
+      <%# <div class = "flex-container">
         <span class="material-symbols-outlined md-40">clinical_notes
           <div>
             <p class = "health-status">Doctor Log</p>
@@ -88,7 +104,8 @@
           <span class="badge text-bg-secondary" >中村佐藤</span>
           <span class="badge text-bg-secondary" >Paul Johnson</span>
         </div>
-      </div>
+      </div> %>
+
     <% else %>
       <div class="logo-container d-flex">
         <div class = "app-title animate__animated animate__fadeIn animate__delay-1s	1s ">
