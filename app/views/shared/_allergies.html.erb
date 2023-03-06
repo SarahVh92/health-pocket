@@ -3,6 +3,6 @@
   <%= simple_form_for(@user, html: { class: "user-form" }) do |f| %>
     <%= f.input :allergies, collection: User::ALLERGIES, label: 'Type of Allergy', input_html: {id: "input-tags", multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}  %>
     <%= f.button :submit, "Add", class: "button" %>
-    <%= link_to "Back", user_path, class: "button" %>
+    <%= link_to "Back", user_path, class: "back-button ms-2" %>
   <% end %>
 </div>
