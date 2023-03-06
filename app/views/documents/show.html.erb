@@ -11,7 +11,7 @@
   <% end %>
 
   <div class = "uploaded-content">
-    <p class = "content"><%= @sentences[0] %><br><br><%= @sentences[1] %><br><br><%= @sentences[2] %><%= @sentences[3] %><br><%= @sentences[4] %><%= @sentences[5] %><%= @sentences[6] %><br><%= @sentences[7] %><%= @sentences[8] %><br><br><%= @sentences[9] %><br><br><%= @sentences[10] %><br><br><%= @sentences[11] %><br><%= @sentences[12] %><br><%= @sentences[13] %><br><%= @sentences[14] %></p>
+    <p class = "content"><%= @sentences[0] %><br><br><%= @sentences[1] %><br><br><%= @sentences[2] %><%= @sentences[3] %><br><%= @sentences[4] %><br><%= @sentences[5] %><br><%= @sentences[6] %><br><%= @sentences[7] %><br><%= @sentences[8] %><br><%= @sentences[9] %><br><br><%= @sentences[10] %><br><br><%= @sentences[11] %><br><%= @sentences[12] %><br><%= @sentences[13] %><br><%= @sentences[14] %></p>
   </div>
 </div>
 
@@ -30,16 +30,6 @@
     <button id = "share" class = "sharing-icon-card"  data-action="click->document#revealContent">
       <%= image_tag "link.png", class: "img-fluid icon-image" %>
     </button>
-
-
-    <%# <%= mail_to "doctor@email.com",
-      cc: "marie@email.com",
-      subject: "Medical Document",
-      body: raw("Please find enclosed my medical document. #{link_to 'PDF', document_path(@document, format: :pdf, query: params[:query]), class: 'link-pdf'}") do %>
-        <%# <button id = "share" class = "sharing-icon-card" data-action="click->document#revealContent">
-          <%= image_tag "mail.png", class: "img-fluid icon-image" %>
-        <%# </button>  %>
-    <%# end %>
 
     <a href="mailto:doctor@email.com?subject=Medical%20Document&cc=marie@email.com&body=Dear%20Doctor%2C%0D%0DPlease%20find%20enclosed%20my%20medical%20document%2E%0D%0D<%= document_url(@document, format: :pdf, query: params[:query]) %> %0D%0DKind%20regards%2C%0DMarie%20De%20Clerck">
       <button id = "share" class = "sharing-icon-card"    data-action="click->document#revealContent">
