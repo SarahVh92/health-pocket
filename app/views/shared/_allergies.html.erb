@@ -1,8 +1,8 @@
 <div class = "container-sm p-4 mt-3">
-<h1 class = "user-header">Allergies</h1>
-<%= simple_form_for(@user, html: { class: "user-form" }) do |f| %>
-  <%= f.input :allergies, collection: User::ALLERGIES, label: 'Type of Allergy', input_html: {id: "input-tags", multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}  %>
-  <%= f.button :submit, "Add", class: "button" %>
-  <%= link_to "Back", user_path, class: "button" %>
-<% end %>
+  <h1 class = "user-header">Allergies</h1>
+  <%= simple_form_for(@user, html: { class: "user-form" }) do |f| %>
+    <%= f.input :allergies, collection: User::ALLERGIES, label: 'Type of Allergy', input_html: {id: "input-tags", multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true}}}  %>
+    <%= f.button :submit, "Add", class: "button" %>
+    <%= link_to "Back", user_path, class: "button" %>
+  <% end %>
 </div>
