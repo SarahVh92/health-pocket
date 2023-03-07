@@ -1,7 +1,6 @@
 require "json"
 require "rest-client"
 require "date"
-# require "pry"
 require 'open-uri'
 
 # Gcal gems
@@ -34,8 +33,6 @@ class Gcal
   #
   # @return [Google::Auth::UserRefreshCredentials] OAuth2 credentials
 
-
-
   def fetch_existing_appointments(service)
     response = @service.list_appointments(CALENDAR_ID)
     puts "No upcoming appointments found" if response.items.empty?
@@ -47,8 +44,8 @@ class Gcal
     # Example to know what  it looks like
     # appointment = {
     #   title: "Dentist",
-    #   address: "Harajuku: 'Happy Mouth",
-    #   start_date: DateTime.now.to_s,
+    #   address: "Harajuku: 'Happy Mouth'",
+    #   date: DateTime.now.to_s,
     #   description: "Wisdom tooth extraction"
     # }
     puts "Appointment to be created:"
@@ -56,7 +53,7 @@ class Gcal
     # gcal_appointment = Google::Apis::CalendarV3::Event.new(
     #   title: appointment[:title],
     #   description: appointment[:description],
-    #   start_date: appointment[:start_date],
+    #   date: appointment[:date],
     #   address: appointment[:address]
     # )
     num = rand(0...100)
@@ -75,13 +72,13 @@ class Gcal
       description: appointment[:description],
       # html_link: event[:url],
       start: {
-        date_time: appointment[:start_date].to_datetime.to_s, # should be like 2020-03-25T17:04:00-07:00
+        date_time: appointment[:date].to_datetime.to_s, # should be like 2020-03-25T17:04:00-07:00
         time_zone: TIME_ZONE,
       },
       end: {
-        date_time: appointment[:start_date].to_datetime.to_s,
+        date_time: appointment[:date].to_datetime.to_s,
         time_zone: TIME_ZONE,
-      },
+      }
     )
     result = @service.insert_event(CALENDAR_ID, gcal_appointment)
     puts "Appointment created: #{result}"
