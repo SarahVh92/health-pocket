@@ -48,5 +48,3 @@ oauth_key.json
 .git.bfg-report
 
 token.yaml
-
-https://localhost:3000/oauth2callback#access_token=ya29.a0AVvZVsrnA1UZBWw6euWSMR7IIb8Q4rgLQUiTRjK6zA82dPqg6hxINkil9rwzM56xD-nGfrX3bjhwImKAxG9lW62yL7l4ij873uf_U1Cnj20P5yE5ea3rvtE4aQki5oEn6oNOAWu0JPfmPrJWkzaWcBDhih1MaCgYKAUISARESFQGbdwaIZf3bBkZksgdagKf9XXFY4Q0163&token_type=Bearer&expires_in=3599&scope=https://www.googleapis.com/auth/calendar

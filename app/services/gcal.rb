@@ -33,6 +33,8 @@ class Gcal
   #
   # @return [Google::Auth::UserRefreshCredentials] OAuth2 credentials
 
+
+
   def fetch_existing_appointments(service)
     response = @service.list_appointments(CALENDAR_ID)
     puts "No upcoming appointments found" if response.items.empty?
@@ -44,7 +46,7 @@ class Gcal
     # Example to know what  it looks like
     # appointment = {
     #   title: "Dentist",
-    #   address: "Harajuku: 'Happy Mouth'",
+    #   address: "Harajuku: 'Happy Mouth",
     #   date: DateTime.now.to_s,
     #   description: "Wisdom tooth extraction"
     # }
