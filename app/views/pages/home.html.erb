@@ -48,7 +48,7 @@
       <div class = "flex-container">
         <span class="material-symbols-outlined md-40">allergy
           <div>
-            <p class = "health-status"><%= link_to "Allergies", {form_name: "allergies"} %></p>
+            <p class = "health-status"><a href=<%= "users/" + current_user.id.to_s + "/allergies"%>>Allergies</a></p>
           </div>
         </span>
         <div class="allergies">
