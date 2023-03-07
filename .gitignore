@@ -45,3 +45,6 @@ ocr-key.json
 google-credentials.json
 
 .git.bfg-report
+
+oauth_key.json
+token.yaml
