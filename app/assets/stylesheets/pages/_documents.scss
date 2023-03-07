@@ -24,6 +24,37 @@
   }
 }
 
+.upload-form{
+  text-align: center;
+}
+
+
+
+.upload-label{
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #ebcbae;
+  padding-top: 50px;
+
+}
+
+#document_photo{
+  background-color: #f9ffa2;
+  border-radius: 30px;
+  font-size: 12px;
+  width: 200px;
+  visibility: hidden;
+}
+
+.fa-cloud-arrow-up{
+  font-size: 100px;
+  color:#41506b;
+}
+
+.fa-cloud-arrow-up:hover{
+  color: #9ba6a5;
+}
 .upload-button{
 margin-left: 20px;
 }

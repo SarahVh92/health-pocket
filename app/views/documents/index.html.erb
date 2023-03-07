@@ -74,12 +74,14 @@
     <% else %>
       <div class = "upload-card mt-5">
         <div>
-          <p><strong>Upload a Document</strong></p>
+          <p class = "upload-label">Upload a Document</p>
           <div data-controller="submit-form">
-            <%= simple_form_for @document, data: { action: "change->submit-form#send", remote:true } do |f| %>
-              <%= f.input :photo, as: :file, wrapper_html:{class: "input-container"}%>
+            <%= simple_form_for(@document, data: { action: "change->submit-form#send", remote:true }, html: { class: "upload-form" }) do |f| %>
+              <%= f.input :photo, as: :file, label: ('<i class="fa-solid fa-cloud-arrow-up"></i>').html_safe , wrapper_html:{class: "input-photo "} %>
             <% end %>
           </div>
+          <%# <i class="fa-solid fa-cloud-arrow-up"></i> %>
+          <%# wrapper_html:{class: "input-container"} %>
           <%#= link_to "Upload", new_document_path, class: "button upload-button" %>
         </div>
       </div>
