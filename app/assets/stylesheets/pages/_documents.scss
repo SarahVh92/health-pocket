@@ -81,6 +81,11 @@ margin-left: 20px;
   margin: 1rem;
   p {
     color:#ffffff;
+    margin: 0px 0px 0px 8px;
+  }
+  a.link {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -124,6 +129,10 @@ margin-left: 20px;
   border-radius: 10px;
   box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 18px;
 }
 
 .document-icon-button:hover{
