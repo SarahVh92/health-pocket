@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container custom-container">
   <div>
     <% if params[:document].present? %>
       <% if @referral_letters.present? %>
         <div class = "documents-scanned-container">
-          <h1>Referral Letters</h1>
+          <h1 class = "text-center mb-3">Referral Letters</h1>
           <% @referral_letters.each do |document| %>
-            <div class = "documents-flex">
-              <p><%= document.date %>: Dr. <%= document.doctor_name %> - <%= document.country %></p>
+            <div class = "documents-flex scanned-style">
+              <p class= "doctor-name"> Dr. <%= document.doctor_name %> - <%= document.country %></p>
               <p class = "ms-3"><%= document.comment %></p>
               <%= link_to document_path(document) do %>
-                <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
+                <span class="material-symbols-outlined md-60">description</span>
               <% end %>
               <% # TO REMOVE ONCE QR WORKS %>
-              <%= link_to "PDF", document_path(document, format: :pdf), class: "link-pdf" %>
+              <%# <%= link_to "PDF", document_path(document, format: :pdf), class: "link-pdf" %>
             </div>
           <% end %>
         </div>
@@ -20,11 +20,11 @@
         <div class = "documents-scanned-container">
           <h1>Immunization Records</h1>
           <% @immunization_records.each do |document| %>
-            <div class = "documents-flex">
+            <div class = "documents-flex scanned-style">
               <p><%= document.date %>: Dr. <%= document.doctor_name %> - <%= document.country %></p>
               <p class = "ms-3"><%= document.comment %></p>
               <%= link_to document_path(document) do %>
-                <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
+                <span class="material-symbols-outlined md-60">description</span>
               <% end %>
             </div>
           <% end %>
@@ -33,11 +33,11 @@
         <div class = "documents-scanned-container">
           <h1>Pathology Records</h1>
           <% @pathology_records.each do |document| %>
-            <div class = "documents-flex">
+            <div class = "documents-flex scanned-style">
               <p><%= document.date %>: Dr. <%= document.doctor_name %> - <%= document.country %></p>
               <p class = "ms-3"><%= document.comment %></p>
               <%= link_to document_path(document) do %>
-                <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
+                <span class="material-symbols-outlined md-60">description</span>
               <% end %>
             </div>
           <% end %>
@@ -46,11 +46,11 @@
         <div class = "documents-scanned-container">
           <h1>Prescription Records</h1>
           <% @prescription_records.each do |document| %>
-            <div class = "documents-flex">
+            <div class = "documents-flex scanned-style">
               <p><%= document.date %>: Dr. <%= document.doctor_name %> - <%= document.country %></p>
               <p class = "ms-3"><%= document.comment %></p>
               <%= link_to document_path(document) do %>
-                <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
+                <span class="material-symbols-outlined md-60">description</span>
               <% end %>
             </div>
           <% end %>
@@ -59,11 +59,11 @@
         <div class = "documents-scanned-container">
           <h1>Radiology Reports</h1>
           <% @radiology_reports.each do |document| %>
-            <div class = "documents-flex">
+            <div class = "documents-flex scanned-style">
               <p><%= document.date %>: Dr. <%= document.doctor_name %> - <%= document.country %></p>
               <p class = "ms-3"><%= document.comment %></p>
               <%= link_to document_path(document) do %>
-                <span class="material-symbols-outlined scanned-doc document-icon-button">description</span>
+                <span class="material-symbols-outlined md-60">description</span>
               <% end %>
             </div>
           <% end %>
@@ -72,7 +72,7 @@
         <p></p>
       <% end %>
     <% else %>
-      <div class = "upload-card mt-5">
+      <div class = "background background-container">
         <div>
           <p class = "upload-label">Upload a Document</p>
           <div data-controller="submit-form">
@@ -90,32 +90,53 @@
 
         <div class = "flex-container-document">
           <%= link_to documents_path(document: "Referral Letters"), class: "link " do %>
-            <span class="material-symbols-outlined document-icon-button">clinical_notes</span>
-            <p>Referral Letters</p>
+
+            <div class = "link-flex">
+              <span class="material-symbols-outlined md-50 me-3">clinical_notes</span>
+              <p class = "me-4">Referral Letters
+              </p>
+            </div>
+
           <% end %>
         </div>
         <div class = "flex-container-document">
           <%= link_to documents_path(document: "Immunization Records"), class: "link" do %>
-            <span class="material-symbols-outlined document-icon-button">syringe</span>
-            <p>Immunization Records</p>
+
+            <div class = "link-flex">
+              <span class="material-symbols-outlined md-50">syringe</span>
+              <p>Immunization Records
+              </p>
+            </div>
           <% end %>
         </div>
         <div class = "flex-container-document">
           <%= link_to documents_path(document: "Pathology Records"), class: "link" do %>
-            <span class="material-symbols-outlined document-icon-button">labs</span>
-            <p>Pathology Records</p>
+
+            <div class = "link-flex">
+              <span class="material-symbols-outlined md-50">labs</span>
+              <p>Pathology Records
+              </p>
+            </div>
           <% end %>
         </div>
         <div class = "flex-container-document">
           <%= link_to documents_path(document: "Prescription Records"), class: "link" do %>
-            <span class="material-symbols-outlined document-icon-button">pill</span>
-            <p>Prescription Records</p>
+
+            <div class = "link-flex">
+              <span class="material-symbols-outlined md-50">pill</span>
+              <p>Prescription Records
+              </p>
+            </div>
           <% end %>
         </div>
         <div class = "flex-container-document">
           <%= link_to documents_path(document: "Radiology Reports"), class: "link" do %>
-            <span class="material-symbols-outlined document-icon-button">radiology</span>
-            <p>Radiology Reports</p>
+
+            <div class = "link-flex">
+              <span class="material-symbols-outlined md-50">radiology</span>
+              <p>Radiology Reports
+              </p>
+            </div>
           <% end %>
         </div>
       </div>
