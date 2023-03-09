@@ -15,7 +15,7 @@ class Gcal
   end
 
   CALENDAR_ID = "4e932fb4fdaf51b10106db11181a977419f92ebe3314d382fd88ecbfb053ab83@group.calendar.google.com"
-  TIME_ZONE = "Asia/Tokyo"
+  # TIME_ZONE = "Asia/Tokyo"
 
   # Gcal API post
   OOB_URI = "urn:ietf:wg:oauth:2.0:oob".freeze
@@ -74,12 +74,10 @@ class Gcal
       description: appointment[:description],
       # html_link: event[:url],
       start: {
-        date_time: appointment[:date].to_datetime.to_s, # should be like 2020-03-25T17:04:00-07:00
-        time_zone: TIME_ZONE,
+        date_time: appointment[:date].to_datetime.to_s # should be like 2020-03-25T17:04:00-07:00
       },
       end: {
-        date_time: appointment[:date].to_datetime.to_s,
-        time_zone: TIME_ZONE,
+        date_time: appointment[:date].to_datetime.to_s
       }
     )
     result = @service.insert_event(CALENDAR_ID, gcal_appointment)
