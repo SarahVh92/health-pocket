@@ -6,8 +6,10 @@
           <h1 class = "text-center mb-3">Referral Letters</h1>
           <% @referral_letters.each do |document| %>
             <div class = "documents-flex scanned-style">
-              <p class= "doctor-name"> Dr. <%= document.doctor_name %> - <%= document.country %></p>
-              <p class = "ms-3"><%= document.comment %></p>
+              <div class = "col-6">
+                <p class= "doctor-name row"> Dr. <%= document.doctor_name %> - <%= document.country %></p>
+                <p class = "doctor-name row"><%= document.comment %></p>
+              </div>
               <%= link_to document_path(document) do %>
                 <span class="material-symbols-outlined md-60">description</span>
               <% end %>
