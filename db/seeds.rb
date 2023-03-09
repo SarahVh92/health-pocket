@@ -80,10 +80,10 @@ puts "Document 2 is created"
 document3 = Document.create!(
   user: User.all.sample,
   doc_type: "Referral Letters",
-  country: "United States of America",
+  country: "USA",
   date: Date.parse("2022/10/25"),
-  doctor_name: "Monique Jackson",
-  comment: "Referral letter for asthma"
+  doctor_name: "Ella Jackson",
+  comment: "Migraine"
   # picture_url: "v1674729870/Baby Loop/car_e7ztnb.jpg"
 )
 grab_image("https://res.cloudinary.com/djteaofzf/image/upload/v1675943445/Health-pocket/Referral_letter_hwohzn.png", Document.last)
