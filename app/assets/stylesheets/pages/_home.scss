@@ -13,7 +13,7 @@
 }
 
 .card-label{
-  font-size :12px;
+  font-size :14px;
   padding-top: 10px;
   text-align: center;
 
@@ -44,13 +44,14 @@ ul {
 }
 
 .health-status{
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Alegreya Sans", "sans-serif";
 }
 
 .health-status a:visited{
 color:inherit;
 }
+
 
 
 @media only screen and (max-width: 600px) {
@@ -68,10 +69,7 @@ color:inherit;
 
 }
 
-.input-container {
-margin: 20px;
 
-}
 
 .allergies {
   width: 200px;

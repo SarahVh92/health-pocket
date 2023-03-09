@@ -45,6 +45,11 @@ class AppointmentsController < ApplicationController
   # end
 
   def set_google_appointment
+    puts @appointment
+    if @appointment.title == "" || @appointment.date == nil || @appointment.date == ""
+      puts "CALLING RETURN"
+      return
+    end
     @gcal_service = Gcal.new
     appointment = {
         title: @appointment.title,
@@ -52,6 +57,7 @@ class AppointmentsController < ApplicationController
         date: @appointment.date,
         description: @appointment.description
       }
+      puts "TEST_______________________"
     @gcal_service.post_to_gcalendar(appointment, @service)
   end
 end

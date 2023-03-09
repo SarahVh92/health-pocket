@@ -54,7 +54,7 @@
         <div class="allergies">
           <% if %>
             <% current_user.allergies.each do |allergy| %>
-              <span class="badge text-bg-secondary" ><%= allergy %></span>
+              <span class="health-pill" ><%= allergy %></span>
             <% end %>
           <% else %>
             <p>None</p>
@@ -69,8 +69,7 @@
           </div>
         </span>
         <div class="allergies">
-          <span class="badge text-bg-secondary" >Imuran</span>
-          <span class="badge text-bg-secondary" >Doxycyline 30g</span>
+          <span class="health-pill" >Xolair 0.016mg</span>
         </div>
       </div>
       <%# Illnesses %>
@@ -81,8 +80,8 @@
           </div>
         </span>
         <div class="allergies">
-          <span class="badge text-bg-secondary" >Anemia</span>
-          <span class="badge text-bg-secondary" >Migraine</span>
+          <span class="health-pill" >Anemia</span>
+          <span class="health-pill" >Migraine</span>
         </div>
       </div>
       <div class = "flex-container">
@@ -92,8 +91,8 @@
           </div>
         </span>
         <div class="allergies">
-          <span class="badge text-bg-secondary" >中村佐藤</span>
-          <span class="badge text-bg-secondary" >Paul Johnson</span>
+          <span class="health-pill" >中村佐藤</span>
+          <span class="health-pill" >Paul Johnson</span>
         </div>
       </div>
     <% else %>
