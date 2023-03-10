@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if current_user && params[:page] != "welcome" %>
   <div class="homepage-container">
     <span>
       <h1 class = "welcome">Welcome back, Marie!
