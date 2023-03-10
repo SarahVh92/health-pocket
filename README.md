@@ -56,7 +56,9 @@
 <ul>
   <li>Upload a document</li>
   <li> Translate a document</li>
-  <li> Share a document</li></ul>
+  <li> Share a document</li>
+<li>Add an Appointment</li>
+</ul>
 
 
 
@@ -77,7 +79,9 @@
 
 To do:
 <ul>
-  <li>Make responsive</li><ul>
+  <li>Make responsive</li>
+<li> Add Tools</li>
+<ul>
 
 
 ## Contact
