@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :documents, dependent: :destroy
   has_many :appointments
+  has_many :medical_histories
   has_one_attached :photo
 
   validates :first_name, presence: true
