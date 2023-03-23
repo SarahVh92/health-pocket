@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_104739) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_23_115006) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,12 +44,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_104739) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "title"
-    t.string "string"
     t.datetime "date"
-    t.datetime "end_date"
     t.integer "user_id"
     t.string "description"
     t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "doctor_logs", force: :cascade do |t|
+    t.string "doctor_name"
+    t.date "date"
+    t.string "hospital_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,24 +75,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_104739) do
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "string"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer "user_id"
-    t.string "description"
-    t.text "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "immunizations", force: :cascade do |t|
     t.string "name"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "immu_type"
+  end
+
+  create_table "medical_histories", force: :cascade do |t|
+    t.string "disease"
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_medical_histories_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -146,5 +150,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_104739) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "documents", "users"
+  add_foreign_key "medical_histories", "users"
   add_foreign_key "taggings", "tags"
 end
