@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'medical_histories/show'
   devise_for :users
   resources :users, only: %i[show update]
   get "/users/:id/:form_name", to: "users#show"
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   resources :documents, only: %i[index edit update new create show]
   resources :immunizations, only: %i[index show]
   resources :appointments, only: %i[index new create]
+  resources :medical_history, only: %i[show]
 end
