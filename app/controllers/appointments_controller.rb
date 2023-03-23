@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
-  # before_action :set_appointment, only: %i[show]
-  after_action :set_google_appointment, only: %i[ create ]
+  after_action :set_google_appointment, only: %i[create]
   def index
     @appointments = policy_scope(Appointment)
   end
@@ -22,16 +21,12 @@ class AppointmentsController < ApplicationController
     # @gcal_service.post_to_gcalendar(appointment, @service)
     authorize @appointment
     @appointment.user = current_user
-      if @appointment.save
-        redirect_to appointments_path, notice: 'Appointment was successfully created.'
+    if @appointment.save
+      redirect_to appointments_path, notice: 'Appointment was successfully created.'
 
-      else
-        render :new, status: :unprocessable_entity
-      end
-
-    # rescue Google::Apis::ClientError => error
-    #   redirect_to appointments_path, notice: error.message
-    # end
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -39,10 +34,6 @@ class AppointmentsController < ApplicationController
   def appointment_params
     params.require(:appointment).permit(:title, :date, :description, :address)
   end
-
-  # def set_appointment
-  #   @appointment = Appointment.find(params[:id])
-  # end
 
   def set_google_appointment
     puts @appointment
@@ -52,12 +43,12 @@ class AppointmentsController < ApplicationController
     end
     @gcal_service = Gcal.new
     appointment = {
-        title: @appointment.title,
-        address: @appointment.address,
-        date: @appointment.date,
-        description: @appointment.description
-      }
-      puts "TEST_______________________"
+      title: @appointment.title,
+      address: @appointment.address,
+      date: @appointment.date,
+      description: @appointment.description
+    }
+    puts "TEST_______________________"
     @gcal_service.post_to_gcalendar(appointment, @service)
   end
 end
