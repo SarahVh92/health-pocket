@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   after_action :set_google_appointment, only: %i[create]
+
   def index
     @appointments = policy_scope(Appointment)
   end

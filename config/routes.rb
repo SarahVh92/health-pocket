@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :documents, only: %i[index edit update new create show]
   resources :immunizations, only: %i[index show]
   resources :appointments, only: %i[index new create]
-  resources :medical_history, only: %i[show]
+  resources :medical_histories, only: %i[new create]
 end
