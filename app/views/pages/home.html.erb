@@ -1,60 +1,58 @@
-<% if current_user && params[:page] != "welcome" %>
+<% if current_user %>
   <div class="homepage-container">
     <span>
-      <h1 class = "welcome">Welcome back, Marie!
-        <h1></span>
-        <div class = "cards-wrapper">
-          <div class = "row g-1 d-flex justify-content-center">
-            <%# Documents %>
-            <div class = "col">
-              <%= link_to documents_path do %>
-                <div class = "card home-icon-card">
-                  <%= image_tag "documents.png", class: "img-fluid icon-image" %>
-                </div>
-              <% end %>
-              <p class = "card-label">Documents</p>
+      <h1 class="welcome">Welcome back, Marie!</h1>
+    </span>
+    <div class="cards-wrapper">
+      <div class="row g-1 d-flex justify-content-center">
+        <%# Documents %>
+        <div class="col">
+          <%= link_to documents_path do %>
+            <div class="card home-icon-card">
+              <%= image_tag "documents.png", class: "img-fluid icon-image" %>
             </div>
-            <%# Appointments %>
-            <div class = "col">
-              <%= link_to appointments_path do %>
-                <div class = "card home-icon-card">
-                  <%= image_tag "calendar.png", class: "img-fluid icon-image" %>
-                </div>
-              <% end %>
-              <p class = "card-label">Appointments</p>
+          <% end %>
+          <p class="card-label">Documents</p>
+        </div>
+        <%# Appointments %>
+        <div class="col">
+          <%= link_to appointments_path do %>
+            <div class="card home-icon-card">
+              <%= image_tag "calendar.png", class: "img-fluid icon-image" %>
             </div>
-            <%#Travel info%>
-            <div class = "col">
-              <div class = "card home-icon-card">
-                <%= image_tag "world.png", class: "img-fluid icon-image" %>
-              </div>
-              <p class = "card-label">Travel Info</p>
-            </div>
-            <%# Tools %>
-            <div class = "col">
-              <div class = "card home-icon-card">
-                <%= image_tag "tools.png", class: "img-fluid icon-image" %>
-              </div>
-              <p class = "card-label">Tools</p>
-            </div>
+          <% end %>
+          <p class="card-label">Appointments</p>
+        </div>
+        <%# Travel info %>
+        <div class="col">
+          <div class="card home-icon-card">
+            <%= image_tag "world.png", class: "img-fluid icon-image" %>
           </div>
+          <p class="card-label">Travel Info</p>
+        </div>
+        <%# Tools %>
+        <div class="col">
+          <div class="card home-icon-card">
+            <%= image_tag "tools.png", class: "img-fluid icon-image" %>
+          </div>
+          <p class="card-label">Tools</p>
         </div>
       </div>
     </div>
-    <div class = "card health-card">
+    <div class="card health-card">
       <h3 class="text-center">Health Status</h3>
       <%= image_tag "health.png", class: "img-fluid health-card-image" %>
       <%# Allergy %>
-      <div class = "flex-container">
+      <div class="flex-container">
         <span class="material-symbols-outlined md-40">allergy
           <div>
-            <p class = "health-status"><a href=<%= "users/" + current_user.id.to_s + "/allergies"%>>Allergies</a></p>
+            <p class="health-status"><a href=<%= "users/" + current_user.id.to_s + "/allergies"%>>Allergies</a></p>
           </div>
         </span>
         <div class="allergies">
-          <% if %>
+          <% if current_user.allergies.present? %>
             <% current_user.allergies.each do |allergy| %>
-              <span class="health-pill" ><%= allergy %></span>
+              <span class="health-pill"><%= allergy %></span>
             <% end %>
           <% else %>
             <p>None</p>
@@ -62,38 +60,39 @@
         </div>
       </div>
       <%# Prescriptions %>
-      <div class = "flex-container">
-        <span class="material-symbols-outlined md-40 ">medication_liquid
+      <div class="flex-container">
+        <span class="material-symbols-outlined md-40">medication_liquid
           <div>
-            <p class = "health-status">Prescriptions</p>
+            <p class="health-status">Prescriptions</p>
           </div>
         </span>
         <div class="allergies">
-          <span class="health-pill" >Xolair 0.016mg</span>
+          <span class="health-pill">Xolair 0.016mg</span>
         </div>
       </div>
       <%# Illnesses %>
-      <div class = "flex-container">
+      <div class="flex-container">
         <span class="material-symbols-outlined md-40">stethoscope
           <div>
-            <p class = "health-status">Illnesses</p>
+            <p class="health-status">Illnesses</p>
           </div>
         </span>
         <div class="allergies">
-          <span class="health-pill" >Anemia</span>
-          <span class="health-pill" >Migraine</span>
+          <span class="health-pill">Anemia</span>
+          <span class="health-pill">Migraine</span>
         </div>
       </div>
-      <div class = "flex-container">
+      <div class="flex-container">
         <span class="material-symbols-outlined md-40">clinical_notes
           <div>
-            <p class = "health-status">Doctor Log</p>
+            <p class="health-status">Doctor Log</p>
           </div>
         </span>
         <div class="allergies">
-          <span class="health-pill" >中村佐藤</span>
-          <span class="health-pill" >Paul Johnson</span>
+          <span class="health-pill">中村佐藤</span>
+          <span class="health-pill">Paul Johnson</span>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
+<% end %>

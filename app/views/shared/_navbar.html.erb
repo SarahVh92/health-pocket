@@ -1,22 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-healthpocket">
   <div class="container-fluid">
-    <% if params[:page].present? %>
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "navlogo.png" %>
-      <% end %>
-    <% else %>
-      <%= link_to root_path(page: "welcome"), class: "navbar-brand" do %>
-        <%= image_tag "navlogo.png" %>
-      <% end %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "navlogo.png" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span>
         <lord-icon
-    src="https://cdn.lordicon.com/ynwbvguu.json"
-    trigger="hover"
-    colors="primary:#5abaae"
-    style="width:40px;height:40px">
-        </lord-icon></span>
+          src="https://cdn.lordicon.com/ynwbvguu.json"
+          trigger="hover"
+          colors="primary:#5abaae"
+          style="width:40px;height:40px">
+        </lord-icon>
+      </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -35,9 +30,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          <!-- Add any other menu items you need for non-logged-in users here -->
         <% end %>
       </ul>
     </div>
