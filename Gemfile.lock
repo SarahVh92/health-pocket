@@ -85,6 +85,10 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    bootstrap (5.3.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.11.8, < 3)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -286,6 +290,7 @@ GEM
     orm_adapter (0.5.0)
     os (1.1.4)
     pg (1.4.6)
+    popper_js (2.11.8)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -418,6 +423,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 9.0)
   autoprefixer-rails
   bootsnap
+  bootstrap (~> 5.2)
   capybara
   cloudinary
   debug

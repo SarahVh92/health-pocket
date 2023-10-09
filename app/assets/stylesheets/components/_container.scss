@@ -1,31 +1,31 @@
-// .logo-container{
-// position: fixed;
-//   padding-top: 100px;
-//   width: 100%;
-//   height: 100%;
-//   background-color:#fbf4f4;
-// }
+.logo-container{
+position: fixed;
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  background-color:#fbf4f4;
+}
 
-// .login-container{
-//   padding-top: 50px;
-//   overflow:hidden;
-//   .animate__animated.animate__fadeIn {
+.login-container{
+  padding-top: 50px;
+  overflow:hidden;
+  .animate__animated.animate__fadeIn {
 
-//     --animate-delay: 2s;
+    --animate-delay: 2s;
 
-//   }
-// }
+  }
+}
 
-// .homepage-container{
-//   overflow:hidden;
-//   background-color:#5ABAAE ;
-//   color: white;
-// }
+.homepage-container{
+  overflow:hidden;
+  background-color:#5ABAAE ;
+  color: white;
+}
 
 
 
-// @media only screen and (max-width: 600px) {
-//   .login-container {
-//     padding-top: 100px;
-//   }
-// }
+@media only screen and (max-width: 600px) {
+  .login-container {
+    padding-top: 100px;
+  }
+}
